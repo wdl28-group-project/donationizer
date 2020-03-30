@@ -18,10 +18,9 @@ massive(CONNECTION_STRING)
 
 //Donation Controller
 const donationCtrl = require('./controllers/donationCtrl');
-const { postDonation, deleteDonation, updateViewCount, getDonation, getDonations } = donationCtrl;
+const { postDonation, deleteDonation, updateViewCount, getDonations } = donationCtrl;
 
 app.get('/api/donations', getDonations);
-app.get('/api/donation/:id', getDonation);
-app.post('/api/donation/:id', postDonation);
+app.post('/api/donation/', postDonation);
 app.put('/api/viewCount/:id', updateViewCount);
 app.delete('/api/donation/:id', deleteDonation);

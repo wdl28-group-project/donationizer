@@ -3,9 +3,8 @@ module.exports={
 
 postDonation: function (req, res){
     const db = req.app.get('db')        
-    const donator_id = req.session.user.users_id
-    const {donation_title, donation_desc, post_location, view_count, isdonated, category} = req.body
-    db.donations.postDonation(donator_id, donation_title, donation_desc, post_location, view_count, isdonated, category)
+    const {donation_title, donation_desc, post_location,post_date, view_count, isdonated, category, donator_id} = req.body
+    db.donations.postDonation(donator_id, donation_title, donation_desc, post_location, view_count, isdonated, category,post_date)
         .then(post =>{
             console.log(post)
             res.sendStatus(200)
@@ -43,18 +42,6 @@ updateViewCount: function (req, res) {
         .catch(error => {
             console.log(error)
             res.status(500).json("internal server error")
-        })
-},
-getDonation: function (req, res){
-    const db = req.app.get('db')
-    const donation_id = req.params.donation_id
-    db.donations.getAllEvents(donation_id)
-        .then((respond) => {
-            res.status(200).send(respond)
-        })
-        .catch(error=>{
-            console.error(error)
-            res.sendStatus(500)
         })
 },
 
