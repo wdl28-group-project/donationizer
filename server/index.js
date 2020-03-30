@@ -15,3 +15,11 @@ massive(CONNECTION_STRING)
     app.set('db', db);
 } )
 .catch( err => console.error(err) );
+
+// Auth
+const authCtrl = require('./controllers/authCtrl');
+let { registerUser, login, logout } = authCtrl;
+
+app.post('/auth/register', registerUser);
+app.get('/auth/login', login);
+app.get('/auth/logout', logout);
