@@ -34,7 +34,7 @@ const authCtrl = require('./controllers/authCtrl');
 let { registerUser, login, logout } = authCtrl;
 
 const donationCtrl = require('./controllers/donationCtrl');
-const {getDonationByCategory,getFilteredDonations} = donationCtrl;
+const {getDonationByCategory,getFilteredDonations,getDonationInfo,getDonationPhotos} = donationCtrl;
 
 
 app.post('/auth/register', registerUser);
@@ -43,6 +43,8 @@ app.get('/auth/logout', logout);
 
 app.get('/api/donations/category',getDonationByCategory);
 app.get('/api/donations/filter',getFilteredDonations);
+app.get('/api/donation/:id/photos',getDonationPhotos);
+app.get('/api/donation/:id',getDonationInfo);
 
 
 

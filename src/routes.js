@@ -5,7 +5,7 @@ import Register from './components/Register';
 import Home from './components/Home';
 import DonationDetails from './components/DonationDetails';
 import Profile from './components/Profile';
-import AddDonation from './components/AddDonation'
+import AddDonation from './components/AddDonation';
 
 
 export default(
@@ -17,4 +17,4 @@ export default(
         <Route path="/profile" component={Profile}/>
         <Route path="/add" component={AddDonation}/>
     </Switch>
-)
+);
