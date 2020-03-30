@@ -5,7 +5,6 @@ postDonation: function (req, res){
     const db = req.app.get('db')        
     const donator_id = req.session.user.users_id
     const {donation_title, donation_desc, post_location, view_count, isdonated, category} = req.body
-    console.log(dateofevent)
     db.donations.postDonation(donator_id, donation_title, donation_desc, post_location, view_count, isdonated, category)
         .then(post =>{
             console.log(post)
@@ -36,7 +35,7 @@ updateViewCount: function (req, res) {
     const donation_id = req.params.donation_id
    const { view_count} = req.body;
     
-   db.events.postDonation( view_count, donation_id)
+   db.donations.postDonation( view_count, donation_id)
         .then(put =>{
             console.log(`view count hav changed to ${put}`)
             res.sendStatus(200)
@@ -49,7 +48,7 @@ updateViewCount: function (req, res) {
 getDonation: function (req, res){
     const db = req.app.get('db')
     const donation_id = req.params.donation_id
-    db.events.getAllEvents(donation_id)
+    db.donations.getAllEvents(donation_id)
         .then((respond) => {
             res.status(200).send(respond)
         })
@@ -61,12 +60,11 @@ getDonation: function (req, res){
 
 getDonations: function (req, res){
     const db = req.app.get('db')
-    db.events.getDonations()
+    db.donations.getDonations()
         .then((respond) => {
             res.status(200).send(respond)
         })
         .catch(error=>{
-            console.error(error)
             res.sendStatus(500)
         })
 }
