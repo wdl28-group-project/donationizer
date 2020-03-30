@@ -24,16 +24,17 @@ const login = async (req, res) => {
     if(user.length !== 0){
         var areEqual = bcrypt.compareSync( password, user[0].password );
         if(areEqual){
-            let { user_id, username } = user[0];
+            let { user_id, username, location } = user[0];
 
             req.session.user = {
                 user_id,
-                username
+                username,
+                location
             }
 
             res
             .status(200)
-            .send('Found user, successfully logged in', req.session.user);
+            .send(req.session.user);
         }else{
             res
             .status(400)
@@ -48,7 +49,7 @@ const login = async (req, res) => {
 }
 
 const logout = (req, res) => {
-    req.sessions.destroy();
+    req.session.destroy();
     res.sendStatus(200);
 }
 
