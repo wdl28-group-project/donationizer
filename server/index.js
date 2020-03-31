@@ -15,6 +15,7 @@ massive(CONNECTION_STRING)
 } )
 .catch( err => console.error(err) );
 
+
 app.use(
     session({
         saveUninitialized: true,
@@ -46,5 +47,11 @@ app.get('/api/donations/filter',getFilteredDonations);
 app.get('/api/donation/:id/photos',getDonationPhotos);
 app.get('/api/donation/:id',getDonationInfo);
 
+//Donation Controller
+const { postDonation, deleteDonation, updateViewCount, getDonations } = donationCtrl;
 
+app.get('/api/donations', getDonations);
+app.post('/api/donation/', postDonation);
+app.put('/api/viewCount/:id', updateViewCount);
+app.delete('/api/donation/:id', deleteDonation);
 
