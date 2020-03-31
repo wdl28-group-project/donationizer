@@ -1,10 +1,37 @@
-import React from 'react';
+import React from "react";
+import Categories from "../components/Categories";
+import {connect} from 'react-redux';
+import { getDonations } from "../redux/reducers/donationReducer";
 
-class Home extends React.Component{
-    render(){
-        return(
-            <div>Home</div>
-        )
+class Home extends React.Component {
+    componentDidMount(){
+        this.props.getDonations();
     }
+  render() {
+    const mappedDonation= this.props.donations.map(el=>{
+        return(
+            <div key={el.donation_id}>
+                <p>{el.donation_title}</p>
+                <p>{el.post_location}</p>
+                <img src={el.donation_photo} width="200px"/>
+            </div>
+        )
+
+    })
+      console.log(this.props.donations)
+    return (
+      <div>
+        <h3>Home Component</h3>
+        {mappedDonation}
+        <Categories />
+      </div>
+    );
+  }
 }
-export default Home;
+const mapStateToProps = reduxState => {
+  return {
+    donations: reduxState.donation.donations
+  };
+};
+
+export default connect(mapStateToProps, { getDonations })(Home);
