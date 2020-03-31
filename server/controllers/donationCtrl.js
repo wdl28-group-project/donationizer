@@ -1,8 +1,14 @@
 module.exports={
+    getDonations:async(req, res)=>{
+        const db = req.app.get('db')
+        const donations = await db.donations.getDonations();
+        res.status(200).json(donations)
+    },
     getDonationByCategory:async (req,res)=>{
         const db = req.app.get('db');
-        const {category_name} = req.query;
-        const donationsByCategory = await db.donations.getDonationsByCategory(category_name);
+        const {category} = req.query;
+        // console.log(category)
+        const donationsByCategory = await db.donations.getDonationsByCategory(category);
         res.status(200).json(donationsByCategory);
         // console.log(donationsByCategory);
     },
