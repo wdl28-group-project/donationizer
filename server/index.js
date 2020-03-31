@@ -15,6 +15,7 @@ massive(CONNECTION_STRING)
 } )
 .catch( err => console.error(err) );
 
+
 app.use(
     session({
         saveUninitialized: true,
@@ -31,21 +32,27 @@ app.listen( SERVER_PORT, () => console.log('Party on, Wayne!') );
 
 // Auth
 const authCtrl = require('./controllers/authCtrl');
-let { registerUser, login, logout } = authCtrl;
+let { registerUser, login, logout, editUser } = authCtrl;
 
 const donationCtrl = require('./controllers/donationCtrl');
-const {getDonationByCategory,getFilteredDonations,getDonationInfo,getDonationPhotos,getDonations} = donationCtrl;
 
 
 app.post('/auth/register', registerUser);
 app.get('/auth/login', login);
 app.get('/auth/logout', logout);
+app.put('/auth/editUser', editUser);
+
+
+//Donation Controller
+const {getDonationByCategory,getFilteredDonations,getDonationInfo,getDonationPhotos,getDonations,postDonation, deleteDonation,updateViewCount} = donationCtrl;
+
+app.get('/api/donations', getDonations);
+app.post('/api/donation/', postDonation);
+app.put('/api/viewCount/:id', updateViewCount);
+app.delete('/api/donation/:id', deleteDonation);
+
 
 app.get('/api/donations/category',getDonationByCategory);
 app.get('/api/donations/filter',getFilteredDonations);
 app.get('/api/donation/:id/photos',getDonationPhotos);
 app.get('/api/donation/:id',getDonationInfo);
-app.get('/api/donations', getDonations);
-
-
-

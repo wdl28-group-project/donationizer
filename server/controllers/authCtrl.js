@@ -53,10 +53,29 @@ const logout = (req, res) => {
     res.sendStatus(200);
 }
 
+const editUser =  async (req, res) => {
+    const db = req.app.get('db');
+
+    let { username, profile_pic, location, user_id } = req.body;
+
+    var user = await db.auth.editUser( username, profile_pic, location, user_id );
+
+    req.session.user = {
+        user_id: user[0].user_id,
+        username: user[0].username,
+        profile_pic: user[0].profile_pic,
+        location: user[0].location
+    }
+
+    res.status(200)
+    .send(req.session.user)
+}
+
 
 
 module.exports = {
     registerUser,
     login,
-    logout
+    logout,
+    editUser
 }
