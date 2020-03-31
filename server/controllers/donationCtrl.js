@@ -17,7 +17,7 @@ postDonation: function (req, res){
 
 deleteDonation:  function (req, res) {
     const db = req.app.get('db')
-        const donation_id = req.params.donation_id
+        const donation_id = +req.params.id
         console.log(donation_id)
         db.donations.deleteDonation(donation_id)
     .then(response =>{
@@ -31,17 +31,17 @@ deleteDonation:  function (req, res) {
 },
 updateViewCount: function (req, res) {
     const db = req.app.get('db');
-    const donation_id = req.params.donation_id
+    const donation_id = +req.params.id
    const { view_count} = req.body;
     
-   db.donations.postDonation( view_count, donation_id)
+   db.donations.updateViewCount(donation_id, view_count)
         .then(put =>{
             console.log(`view count hav changed to ${put}`)
             res.sendStatus(200)
         })
         .catch(error => {
             console.log(error)
-            res.status(500).json("internal server error")
+            res.status(500).json("you fucked up")
         })
 },
 

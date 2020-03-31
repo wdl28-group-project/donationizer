@@ -30,18 +30,17 @@ app.use(
 app.listen( SERVER_PORT, () => console.log('Party on, Wayne!') );
 
 
-// Auth
 const authCtrl = require('./controllers/authCtrl');
-let { registerUser, login, logout } = authCtrl;
-
 const donationCtrl = require('./controllers/donationCtrl');
-const {getDonationByCategory,getFilteredDonations,getDonationInfo,getDonationPhotos} = donationCtrl;
 
 
+// Auth
+let { registerUser, login, logout } = authCtrl;
 app.post('/auth/register', registerUser);
 app.get('/auth/login', login);
 app.get('/auth/logout', logout);
-
+// Donation controller filtercatagories-search
+const {getDonationByCategory,getFilteredDonations,getDonationInfo,getDonationPhotos} = donationCtrl;
 app.get('/api/donations/category',getDonationByCategory);
 app.get('/api/donations/filter',getFilteredDonations);
 app.get('/api/donation/:id/photos',getDonationPhotos);
