@@ -21,7 +21,7 @@ deleteDonation:  function (req, res) {
         console.log(donation_id)
         db.donations.deleteDonation(donation_id)
     .then(response =>{
-        console.log(`product ${response} has been delete`)
+        console.log(donation_id)
         res.sendStatus(200)
     })
     .catch(error=>{
