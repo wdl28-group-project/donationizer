@@ -1,9 +1,16 @@
 import React from 'react';
-class Profile extends React.Component{
+
+
+export default class Profile extends React.Component {
+
     render(){
         return(
-            <div>Profile</div>
+            <div>Profile
+            <input placeholder="Username"></input>
+            <input placeholder="Location"></input>
+            <input placeholder="URL"></input>
+            <button>Save changes</button>
+            </div>
         )
     }
 }
-export default Profile;

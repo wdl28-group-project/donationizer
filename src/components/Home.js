@@ -2,6 +2,7 @@ import React from "react";
 import Categories from "../components/Categories";
 import {connect} from 'react-redux';
 import { getDonations } from "../redux/reducers/donationReducer";
+import { Link } from 'react-router-dom'; 
 
 class Home extends React.Component {
     componentDidMount(){
@@ -22,6 +23,7 @@ class Home extends React.Component {
     return (
       <div>
         <h3>Home Component</h3>
+        <Link to="/profile"><button>Profile</button></Link>
         {mappedDonation}
         <Categories />
       </div>
