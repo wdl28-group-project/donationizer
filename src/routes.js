@@ -11,7 +11,7 @@ import AddDonation from './components/AddDonation';
 export default(
     <Switch>
         <Route exact path="/" component={Home}/>
-        <Route exact path="/donation/:id" component={DonationDetails}/>
+        <Route exact path="/donation-details" component={DonationDetails}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Route path="/profile" component={Profile}/>
