@@ -89,9 +89,9 @@ INSERT INTO categories
 values('Housing'),
 ('Clothing'),
 ('Electronics'),
-('Home & Garden'),
+('Home'),
 ('Education'),
-('Sports & Games'),
-('Movies & Music'),
-('Baby & Child'),
+('Sports'),
+('Movies'),
+('Baby'),
 ('Other');
