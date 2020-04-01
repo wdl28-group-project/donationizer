@@ -34,13 +34,16 @@ const authCtrl = require('./controllers/authCtrl');
 const donationCtrl = require('./controllers/donationCtrl');
 
 
+
 // Auth
-let { registerUser, login, logout } = authCtrl;
+let { registerUser , login, logout, editUser } = authCtrl;
 app.post('/auth/register', registerUser);
 app.get('/auth/login', login);
 app.get('/auth/logout', logout);
+app.put('/auth/editUser', editUser);
 // Donation controller filtercatagories-search
 const {getDonationByCategory,getFilteredDonations,getDonationInfo,getDonationPhotos} = donationCtrl;
+
 app.get('/api/donations/category',getDonationByCategory);
 app.get('/api/donations/filter',getFilteredDonations);
 app.get('/api/donation/:id/photos',getDonationPhotos);

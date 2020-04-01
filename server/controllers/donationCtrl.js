@@ -1,5 +1,10 @@
 
 module.exports={
+    getDonations:async(req, res)=>{
+        const db = req.app.get('db')
+        const donations = await db.donations.getDonations();
+        res.status(200).json(donations)
+    },
 
 postDonation: function (req, res){
     const db = req.app.get('db')        
@@ -44,22 +49,11 @@ updateViewCount: function (req, res) {
             res.status(500).json("you fucked up")
         })
 },
-
-getDonations: function (req, res){
-    const db = req.app.get('db')
-    db.donations.getDonations()
-        .then((respond) => {
-            res.status(200).send(respond)
-        })
-        .catch(error=>{
-            res.sendStatus(500)
-        })
-},
-
     getDonationByCategory:async (req,res)=>{
         const db = req.app.get('db');
-        const {category_name} = req.query;
-        const donationsByCategory = await db.donations.getDonationsByCategory(category_name);
+        const {category} = req.query;
+        // console.log(category)
+        const donationsByCategory = await db.donations.getDonationsByCategory(category);
         res.status(200).json(donationsByCategory);
         // console.log(donationsByCategory);
     },
