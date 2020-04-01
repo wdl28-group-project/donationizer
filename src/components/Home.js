@@ -1,25 +1,30 @@
-import React from "react";
-import Categories from "../components/Categories";
-import {connect} from 'react-redux';
-import { getDonations } from "../redux/reducers/donationReducer";
-import { Link } from 'react-router-dom'; 
+import React from 'react';
+import Categories from '../components/Categories';
+import { connect } from 'react-redux';
+import { getDonations } from '../redux/reducers/donationReducer';
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
-    componentDidMount(){
-        this.props.getDonations();
-    }
+  componentDidMount() {
+    this.props.getDonations();
+  }
   render() {
-    const mappedDonation= this.props.donations.map(el=>{
-        return(
-            <div key={el.donation_id} style={{'border':'1px solid black','width':'40vw'}}>
-                <p>{el.donation_title}</p>
-                <p>{el.post_location}</p>
-                <img src={el.donation_photo} width="200px"/>
-            </div>
-        )
-
-    })
-      console.log(this.props.donations)
+    const mappedDonation = this.props.donations.map(el => {
+      return (
+        <Link to='/donation-details'>
+          <div
+            donation_id={el.donation_id}
+            key={el.donation_id}
+            style={{ border: '1px solid black', width: '40vw' }}
+          >
+            <p>{el.donation_title}</p>
+            <p>{el.post_location}</p>
+            <img src={el.donation_photo} width='200px' />
+          </div>
+        </Link>
+      );
+    });
+    console.log(this.props.donations);
     return (
       <div>
         <h3>Home Component</h3>
