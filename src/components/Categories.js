@@ -1,18 +1,20 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { getDonationsByCategory } from "../redux/reducers/donationReducer";
+import { getDonationsByCategory,getDonations } from "../redux/reducers/donationReducer";
 class Categories extends React.Component{ 
     selectCategory=(category)=>{
         // console.log(category);
-        this.props.getDonationsByCategory(category);
+        this.props.getDonationsByCategory(category).then(res=>{
+            if(this.props.donations.length === 0){
+                return(
+                    this.props.getDonations()
+                )
+            }
+        })
     }
-
-        // filterCategory=()=>{
-    //     axios.get(`/api/donations/category?category=Housing`).then(res=>{
-    //         console.log(res.data)
-    //     })
-    // }
+    
     render(){
+        // console.log(this.props.donations)
         return(
             <div>
                 <p onClick={()=>this.selectCategory('Housing')} name="Housing">Housing</p>
@@ -34,5 +36,5 @@ const mapStateToProps = reduxState => {
     };
   };
   
-  export default connect(mapStateToProps, { getDonationsByCategory })(Categories);
+  export default connect(mapStateToProps, { getDonationsByCategory,getDonations })(Categories);
   

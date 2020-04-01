@@ -8,7 +8,7 @@ class Home extends React.Component {
         this.props.getDonations();
     }
   render() {
-    const mappedDonation= this.props.donations.map(el=>{
+    const mappedDonation = this.props.donations.map(el=>{
         return(
             <div key={el.donation_id} style={{'border':'1px solid black','width':'40vw'}}>
                 <p>{el.donation_title}</p>
