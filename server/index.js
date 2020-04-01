@@ -41,19 +41,19 @@ app.post('/auth/register', registerUser);
 app.get('/auth/login', login);
 app.get('/auth/logout', logout);
 app.put('/auth/editUser', editUser);
-// Donation controller filtercatagories-search
-const {getDonationByCategory,getFilteredDonations,getDonationInfo,getDonationPhotos} = donationCtrl;
 
-app.get('/api/donations/category',getDonationByCategory);
-app.get('/api/donations/filter',getFilteredDonations);
-app.get('/api/donation/:id/photos',getDonationPhotos);
-app.get('/api/donation/:id',getDonationInfo);
+
 
 //Donation Controller
-const { postDonation, deleteDonation, updateViewCount, getDonations } = donationCtrl;
+const {getDonationByCategory,getFilteredDonations,getDonationInfo,getDonationPhotos,getDonations,postDonation, deleteDonation,updateViewCount} = donationCtrl;
 
 app.get('/api/donations', getDonations);
 app.post('/api/donation/', postDonation);
 app.put('/api/viewCount/:id', updateViewCount);
 app.delete('/api/donation/:id', deleteDonation);
 
+
+app.get('/api/donations/category',getDonationByCategory);
+app.get('/api/donations/filter',getFilteredDonations);
+app.get('/api/donation/:id/photos',getDonationPhotos);
+app.get('/api/donation/:id',getDonationInfo);

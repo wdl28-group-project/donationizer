@@ -1,10 +1,10 @@
 
 module.exports={
-    getDonations:async(req, res)=>{
+getDonations:async(req, res)=>{
         const db = req.app.get('db')
         const donations = await db.donations.getDonations();
         res.status(200).json(donations)
-    },
+},
 
 postDonation: function (req, res){
     const db = req.app.get('db')        

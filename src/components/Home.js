@@ -10,7 +10,7 @@ class Home extends React.Component {
   render() {
     const mappedDonation= this.props.donations.map(el=>{
         return(
-            <div key={el.donation_id}>
+            <div key={el.donation_id} style={{'border':'1px solid black','width':'40vw'}}>
                 <p>{el.donation_title}</p>
                 <p>{el.post_location}</p>
                 <img src={el.donation_photo} width="200px"/>
