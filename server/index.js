@@ -30,17 +30,18 @@ app.use(
 app.listen( SERVER_PORT, () => console.log('Party on, Wayne!') );
 
 
-// Auth
 const authCtrl = require('./controllers/authCtrl');
-let { registerUser, login, logout, editUser } = authCtrl;
-
 const donationCtrl = require('./controllers/donationCtrl');
 
 
+
+// Auth
+let { registerUser , login, logout, editUser } = authCtrl;
 app.post('/auth/register', registerUser);
 app.get('/auth/login', login);
 app.get('/auth/logout', logout);
 app.put('/auth/editUser', editUser);
+
 
 
 //Donation Controller
