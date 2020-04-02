@@ -46,7 +46,7 @@ updateViewCount: function (req, res) {
         })
         .catch(error => {
             console.log(error)
-            res.status(500).json("you fucked up")
+            res.status(500).json("something is wrong")
         })
 },
     getDonationByCategory:async (req,res)=>{

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACE,eADa,CACb,cAAc,CAAC;EACb,KAAK,EAAE,KAAK;CACb",
+    "sources": [
+        "CreateMessage.scss"
+    ],
+    "names": [],
+    "file": "CreateMessage.css"
+}

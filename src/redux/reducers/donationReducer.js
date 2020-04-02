@@ -7,6 +7,7 @@ const initialState = {
 //constants
 const GET_DONATIONS = "GET_DONATIONS";
 const GET_DONATIONS_BY_CATEGORY = 'GET_DONATIONS_BY_CATEGORY';
+const GET_DONATION_DETAIL= 'GET_DONATION_DETAIL'
 
 //action creator
 export function getDonations() {
@@ -24,7 +25,13 @@ export function getDonationsByCategory(category) {
     payload: data
   };
 };
-
+export function getDonationsdetail(id) {
+  let data = axios.get(`/api/donation/:${id}`)
+  return {
+    type: GET_DONATION_DETAIL,
+    payload: data
+  };
+};
 //reducer
 export default function donationReducer(state = initialState,action) {
   const { type, payload } = action;
@@ -51,6 +58,17 @@ export default function donationReducer(state = initialState,action) {
         loading:false,
         donations: payload.data
       };
+    case `${GET_DONATION_DETAIL}_PENDING`:
+      return{
+        ...state,
+        loading: true
+      }  
+    case `${GET_DONATION_DETAIL}_FUFILLED`:
+      return{
+        ...state,
+        loading:false,
+        details: payload.data
+      }  
     default:
       return state;
   }
