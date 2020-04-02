@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect, withRouter } from 'react-router-dom';
+import { Redirect, Link, withRouter } from 'react-router-dom';
 import { updateState, registerUser, resetFields } from '../redux/reducers/authReducer';
 
 class Register extends Component{
@@ -39,6 +39,7 @@ class Register extends Component{
                     />
                     <button onClick={this.handleRegister}>Register</button>
                 </div>
+                <span>Already have an account? <Link to='/login'>Login Here</Link></span>
             </div>
         )
     }
