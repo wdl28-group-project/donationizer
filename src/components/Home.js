@@ -28,9 +28,7 @@ class Home extends React.Component {
     return (
       <div>
         <h3>Home Component</h3>
-        <Link to='/chat'>
-          <button>Chat</button>
-        </Link>
+        <Link to="/profile"><button>Profile</button></Link>
         {mappedDonation}
         <Categories />
       </div>
