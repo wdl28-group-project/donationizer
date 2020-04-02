@@ -10,5 +10,4 @@ WHERE
 RETURNING
     username,
     profile_pic,
-    location,
-    user_id
+    location;
