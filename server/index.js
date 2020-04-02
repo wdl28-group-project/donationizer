@@ -61,7 +61,7 @@ app.use(
 // Auth
 let { registerUser, login, logout, editUser } = authCtrl;
 app.post('/auth/register', registerUser);
-app.get('/auth/login', login);
+app.post('/auth/login', login);
 app.get('/auth/logout', logout);
 app.put('/auth/editUser', editUser);
 
