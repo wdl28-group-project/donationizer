@@ -15,6 +15,7 @@ const UPDATE_STATE = 'UPDATE_STATE';
 const RESET_FIELDS = 'RESET_FIELDS';
 const LOGIN_USER = 'LOGIN_USER';
 const LOGOUT_USER = 'LOGOUT_USER';
+const REGISTER_USER = 'REGISTER_USER';
 
 export const updateState = e => {
     return{
@@ -42,6 +43,18 @@ export const logoutUser = () => {
     return{
         type: LOGOUT_USER,
         payload: axios.get('/auth/logout')
+    }
+}
+
+export const registerUser = (username, password, location) => {
+    let body = {
+        username,
+        password,
+        location
+    };
+    return{
+        type: REGISTER_USER,
+        payload: axios.post('/auth/register', body)
     }
 }
 
@@ -87,6 +100,17 @@ const authReducer = ( state=initialState, action ) => {
                 ...state,
                 loading: false,
                 user: {}
+            }
+        case `${REGISTER_USER}_PENDING`:
+            return{
+                ...state,
+                loading: true
+            }
+        case `${REGISTER_USER}_FULFILLED`:
+            return{
+                ...state,
+                loading: false,
+                user: payload.data
             }
 
         default: return state;
