@@ -20,7 +20,6 @@ class CreateMessage extends Component {
     e.preventDefault();
 
     const message = {
-      user: 'Arthur',
       content: this.state.messageContent
     };
 
@@ -33,9 +32,8 @@ class CreateMessage extends Component {
 
   render() {
     return (
-      <form className='create-message' onSubmit={this.submitHandler}>
+      <form id='Create-message-root' onSubmit={this.submitHandler}>
         <input
-          id='message-input'
           type='text'
           value={this.state.messageContent}
           onChange={this.handleChange}

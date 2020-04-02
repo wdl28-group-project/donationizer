@@ -1,4 +1,35 @@
-.create-message #message-input {
-  width: 120px;
+#Create-message-root {
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#Create-message-root input[type='text'] {
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 15px 0 0 15px;
+  width: 85%;
+  padding: 0 10px;
+}
+
+#Create-message-root input[type='submit'] {
+  width: 15%;
+  background: #3e85d1;
+  color: #fff;
+  border: none;
+  border-radius: 0 15px 15px 0;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  height: 50px;
+  line-height: 50px;
+}
+
+#Create-message-root input[type='submit']:hover,
+#Create-message-root input[type='submit']:focus {
+  opacity: 0.8;
 }
 /*# sourceMappingURL=CreateMessage.css.map */
