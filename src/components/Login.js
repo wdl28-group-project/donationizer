@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect, withRouter } from 'react-router-dom';
+import { Redirect, Link, withRouter } from 'react-router-dom';
 import { loginUser, resetFields, updateState } from '../redux/reducers/authReducer';
 
 
@@ -44,6 +44,7 @@ function Login(props){
                 />
                 <button onClick={handleLogin}>Login</button>
             </div>
+            <span>Don't have an account? <Link to='/register'>Register Here</Link></span>
         </div>
     )
 }
