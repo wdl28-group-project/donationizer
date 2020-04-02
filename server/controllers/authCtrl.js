@@ -8,9 +8,18 @@ const registerUser = async (req, res) => {
     var salt = bcrypt.genSaltSync(12);
     var hash = bcrypt.hashSync(password, salt);
 
-    await db.auth.registerUser(username, hash, location)
+    let newUser = await db.auth.registerUser(username, hash, location)
 
-    res.sendStatus(200);
+    req.session.user = {
+        user_id: newUser[0].user_id,
+        username: newUser[0].username,
+        location: newUser[0].location,
+        donation_count: newUser[0].donation_count
+    }
+
+    res
+    .status(200)
+    .send(req.session.user);
 
 }
 
@@ -24,12 +33,14 @@ const login = async (req, res) => {
     if(user.length !== 0){
         var areEqual = bcrypt.compareSync( password, user[0].password );
         if(areEqual){
-            let { user_id, username, location } = user[0];
+            let { user_id, username, profile_pic, location, donation_count } = user[0];
 
             req.session.user = {
                 user_id,
                 username,
-                location
+                profile_pic,
+                location,
+                donation_count
             }
 
             res
