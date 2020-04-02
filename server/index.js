@@ -12,7 +12,7 @@ const io = require('socket.io')(
   app.listen(SERVER_PORT, () => console.log('Party on, Wayne! CHAT is ON!!!'))
 );
 
-let userCount = 1;
+let userCount = 0;
 
 io.on('connection', socket => {
   userCount++;
@@ -21,7 +21,7 @@ io.on('connection', socket => {
 
   socket.emit('SET_USERNAME', username);
   io.sockets.emit('CREATE_MESSAGE', {
-    content: `${username} connected`
+    content: console.log(`${username} connected`)
   });
 
   socket.on('SEND_MESSAGE', messageObj => {
@@ -55,8 +55,6 @@ app.use(
     }
   })
 );
-
-// app.listen(SERVER_PORT, () => console.log());
 
 // Auth
 let { registerUser, login, logout, editUser } = authCtrl;
