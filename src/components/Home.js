@@ -21,7 +21,6 @@ class Home extends React.Component {
     const { search } = this.state;
     let mappedDonation = this.props.donations.map((el, i) => {
       return (
-        // <Link to="/donation-details">
           <div
             key={el.donation_title + i}
             className="donation-card"
@@ -32,7 +31,6 @@ class Home extends React.Component {
             <p>{el.donation_title}</p>
             <p>{el.post_location}</p>
           </div>
-        // </Link>
       );
     });
     let filteredDonation = this.props.donations
@@ -41,7 +39,6 @@ class Home extends React.Component {
       })
       .map((el, i) => {
         return (
-          // <Link to="/donation-details">
             <div
               key={el.donation_title + i}
               className="donation-card"
@@ -54,14 +51,13 @@ class Home extends React.Component {
                 <p>{el.post_location}</p>
               </div>
             </div>
-          // </Link>
         );
       });
     return (
       <div>
         <div className="search-container">
             <div className="search">
-              <MdSearch size="25px" />
+              <MdSearch size="25px"/>
               <input
                 placeholder="search donations"
                 id="input"
