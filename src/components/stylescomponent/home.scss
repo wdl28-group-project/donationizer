@@ -6,26 +6,31 @@
     top: 0;
 }
 .search-container{
-    width:100vw;
     height:8vh;
     background-color:#ff3f55;
     position:sticky;
     top:10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .donation-category-container{
     display: flex;
     justify-content:space-around
 }
 .category-container{
-    width: 15vw;
-    position:sticky;
+    position: fixed;
+    left: 0;
+    margin-top:20px;
 }
 .donation-container{
     width: 83vw;
     padding: 0px 10px;
     box-sizing: border-box;
     text-align: center;   
-    margin-top: -50px; 
+    margin-top: -50px;
+    margin-left: 180px; 
+
 }
 
 .search{
@@ -33,10 +38,12 @@
     width: 25%;
     background-color: white;
     border-radius: 5px;
-    margin: 10px auto;
+    padding: 5px auto;
+    display: flex;
+    align-items: center;   
 }
 #input{
-    width: 80%;
+    width: 90%;
     line-height: 20px;
     font-size: 16px;
     border: 1px solid transparent;
@@ -47,15 +54,13 @@
     display: grid;
     grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));
     grid-template-rows: auto;
-    
-    
 }
 
 .donation-card{
     width: 200px;
     font-size: 15px;
-    margin: 10px;
     border-radius: 15px;
+    margin: 10px 0;
 }
     
         
