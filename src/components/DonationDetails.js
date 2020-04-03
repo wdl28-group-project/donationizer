@@ -50,11 +50,11 @@ class DonationDetails extends React.Component {
     const responsive = {
         desktop: {
           breakpoint: { max:3000, min:1100 },
-          items: 3
+          items: 1
         },
         tablet: {
           breakpoint: { max:1100, min: 690 },
-          items: 3
+          items: 1
         },
         phone:{
           breakpoint: { max:690, min:405 },
