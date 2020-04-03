@@ -1,11 +1,11 @@
 import React from "react";
 import Categories from "../components/Categories";
 import { connect } from "react-redux";
-import { getDonations } from "../redux/reducers/donationReducer";
 import Footer from "./Footer";
 import { MdSearch } from "react-icons/md";
 import {Link} from 'react-router-dom';
-import LoggedIn from './Nav/LoggedIn';
+import { getDonations, getDonationsdetail } from "../redux/reducers/donationReducer";
+
 
 class Home extends React.Component {
   state = { search: "" };
@@ -80,8 +80,10 @@ class Home extends React.Component {
 }
 const mapStateToProps = reduxState => {
   return {
-    donations: reduxState.donation.donations
+    donations: reduxState.donation.donations,
+    details: reduxState.donation.details
+
   };
 };
 
-export default connect(mapStateToProps, { getDonations })(Home);
+export default connect(mapStateToProps, { getDonations,getDonationsdetail })(Home);

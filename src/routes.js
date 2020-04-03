@@ -7,6 +7,7 @@ import DonationDetails from './components/DonationDetails';
 import Profile from './components/Profile';
 import AddDonation from './components/AddDonation';
 import Chat from './components/Chat/Chat/Chat';
+import PostDonation from "./components/PostDonation"
 
 export default (
   <Switch>
@@ -17,5 +18,6 @@ export default (
     <Route path='/profile' component={Profile} />
     <Route path='/add' component={AddDonation} />
     <Route path='/chat' component={Chat} />
+    <Route path='/post' component={PostDonation} />
   </Switch>
 );
