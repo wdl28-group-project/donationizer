@@ -11,9 +11,8 @@ class DonationDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-     pics: [],
-     currentIndex: 0,
-     translateValue: 0
+     pics: []
+   
     }; 
   }
 

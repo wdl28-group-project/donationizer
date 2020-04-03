@@ -31,9 +31,9 @@ $width2: 50%;
 react-multi-carousel-list{
   height: 350px;
   background-color: $second;
-  width: 30vw;
+  width: 30%;
   border-radius: $margin-1;
-  margin: 0 30px;
+  margin: 30px;
   @include tablet() {
     height:330px ;
     margin:0;
@@ -49,9 +49,8 @@ react-multi-carousel-list{
 }
 .w-event-container {
   height: 320px;
-  width: 30vw;
   border-radius: $margin-1;
-  margin: 10px 15px;
+  margin: 0 auto;
   background-color: white;
   @include tablet() {
     height: 300px;
