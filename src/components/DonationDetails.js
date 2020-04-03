@@ -4,7 +4,6 @@ import { getDonations, getDonationsdetail} from "../redux/reducers/donationReduc
 import { Link, Redirect } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Slider from "react-slick";
 import axios from "axios"
 
 class DonationDetails extends React.Component {
@@ -65,6 +64,8 @@ class DonationDetails extends React.Component {
     
       };
 
+      
+
     if (this.props.detail.length === 0) {
       return <Redirect to="/" />;
     } else if (this.props.detail.length > 0) {
@@ -77,6 +78,9 @@ class DonationDetails extends React.Component {
             </Carousel>
 
 
+
+
+            
 
           <h1>{this.props.details.donation_title}</h1>
           <h2>{this.props.details.category_name}</h2>

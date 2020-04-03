@@ -37,3 +37,19 @@ react-multi-carousel-list{
     padding: 5px;
   }
 }
+.w-event-container {
+  height: 320px;
+  width: 95%;
+  border-radius: $margin-1;
+  margin: 10px 15px;
+  background-color: white;
+  @include tablet() {
+    height: 300px;
+  }
+  @include phone() {
+    height: 280px;
+  }
+  @include xphone() {
+    width: 88%;
+  }
+} 
