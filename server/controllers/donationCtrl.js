@@ -19,6 +19,16 @@ postDonation: function (req, res){
             res.status(500).json("internal server error")
         })
 },
+postFavourite: function (req,res){
+    const db = req.app.get('db')
+    const {donation_id, user_id}= req.body
+    db.donations.addFavourite(donation_id, user_id)
+    .then(post=>{ console.log(post)
+        res.sendStatus(200)})
+    .catch(error=> {console.log(error)
+    res.send(500).json("you can't fave")
+    })
+},
 
 deleteDonation:  function (req, res) {
     const db = req.app.get('db')

@@ -21,7 +21,8 @@ class DonationDetails extends React.Component {
     .then(res=>{ console.log(res)
         var url=[]
         for (var j=0; j<res.data.length; j++) {
-            url.push(res.data[j].donation_photo);
+          if (url.includes(res.data[j].donation_photo) === false){
+            url.push(res.data[j].donation_photo);}
             this.setState({pics: url})
         }
     })

@@ -72,7 +72,8 @@ const {
   getDonations,
   postDonation,
   deleteDonation,
-  updateViewCount
+  updateViewCount,
+  postFavourite
 } = donationCtrl;
 
 app.get('/api/donations', getDonations);
@@ -84,3 +85,5 @@ app.get('/api/donations/category', getDonationByCategory);
 app.get('/api/donations/filter', getFilteredDonations);
 app.get('/api/donation/:id/photos', getDonationPhotos);
 app.get('/api/donation/:id', getDonationInfo);
+
+app.post('/api/favourites', postFavourite)
