@@ -64,6 +64,7 @@ app.post('/auth/register', registerUser);
 app.post('/auth/login', login);
 app.get('/auth/logout', logout);
 app.put('/auth/editUser', editUser);
+app.get('/auth/getUser', getUser);
 
 //Donation Controller
 const {

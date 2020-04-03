@@ -90,5 +90,5 @@ module.exports = {
     registerUser,
     login,
     logout,
-    editUser
+    editUser,
 }
