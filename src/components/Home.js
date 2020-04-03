@@ -5,9 +5,9 @@ import { getDonations, getDonationsdetail } from "../redux/reducers/donationRedu
 import {Link, Redirect} from "react-router-dom"
 
 class Home extends React.Component {
-    componentDidMount(){
-        this.props.getDonations();
-    }
+  componentDidMount() {
+    this.props.getDonations();
+  }
   render() {
     const mappedDonation= this.props.donations.map(el=>{
         return(
@@ -29,6 +29,7 @@ if(this.props.details.length>0){return <Redirect to="/donation-details"/>}
     return (
       <div>
         <h3>Home Component</h3>
+        <Link to="/profile"><button>Profile</button></Link>
         {mappedDonation}
         <Categories />
       </div>
