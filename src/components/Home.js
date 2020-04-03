@@ -2,10 +2,10 @@ import React from "react";
 import Categories from "../components/Categories";
 import { connect } from "react-redux";
 import { getDonations } from "../redux/reducers/donationReducer";
-import Header from "./Header";
 import Footer from "./Footer";
 import { MdSearch } from "react-icons/md";
 import {Link} from 'react-router-dom';
+import LoggedIn from './Nav/LoggedIn';
 
 class Home extends React.Component {
   state = { search: "" };
@@ -24,9 +24,9 @@ class Home extends React.Component {
           <div
             key={el.donation_title + i}
             className="donation-card"
-            style={{ border: "1px solid black", width: "40vw" }}
+            style={{ border: "1px solid black"}}
           >
-            <img src={el.donation_photo} alt="donation" width="200px" />
+            <img src={el.donation_photo} alt="donation" />
             <p>{el.donation_title}</p>
             <p>{el.post_location}</p>
           </div>
@@ -43,9 +43,9 @@ class Home extends React.Component {
             <div
               key={el.donation_title + i}
               className="donation-card"
-              style={{ border: "1px solid black", width: "40vw" }}
+              style={{ border: "1px solid black"}}
             >
-              <img src={el.donation_photo} alt="donation" width="200px" />
+              <img src={el.donation_photo} alt="donation" />
               <div>
                 <p>{el.donation_title}</p>
                 <p>{el.post_location}</p>
@@ -56,7 +56,6 @@ class Home extends React.Component {
       });
     return (
       <div className="parent-container">
-        <Header />
         <Categories />
         <div className="donation-container">
           <div className="search-container">
@@ -71,7 +70,7 @@ class Home extends React.Component {
             </div>
           </div>
           <div className="donation-card-container">
-            {!search ? mappedDonation : filteredDonation}
+            {!search ? mappedDonation : filteredDonation && filteredDonation.length === 0 ? mappedDonation:filteredDonation}
           </div>
         </div>
         <Footer />
