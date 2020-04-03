@@ -5,8 +5,6 @@ import Footer from "./Footer";
 import { MdSearch } from "react-icons/md";
 import {Link,Redirect} from 'react-router-dom';
 import { getDonations, getDonationsdetail } from "../redux/reducers/donationReducer";
-
-
 class Home extends React.Component {
   state = { search: "" };
   componentDidMount() {
@@ -21,13 +19,6 @@ class Home extends React.Component {
     const { search } = this.state;
     let mappedDonation = this.props.donations.map((el, i) => {
       return (
-<<<<<<< HEAD
-        <Link to="/donation-details">
-          <div 
-            onClick={()=>this.props.getDonationsdetail(el.donation_id)}
-             key={el.donation_id} 
-             style={{'border':'1px solid black','width':'40vw'}}>
-=======
         // <Link to="/donation-details">
           <div
             key={el.donation_title + i}
@@ -35,7 +26,6 @@ class Home extends React.Component {
             style={{ border: "1px solid black"}}
             onClick={()=>this.props.getDonationsdetail(el.donation_id)}
           >
->>>>>>> master
             <img src={el.donation_photo} alt="donation" />
             <p>{el.donation_title}</p>
             <p>{el.post_location}</p>
@@ -95,8 +85,6 @@ const mapStateToProps = reduxState => {
   return {
     donations: reduxState.donation.donations,
     details: reduxState.donation.details
-
   };
 };
-
 export default connect(mapStateToProps, { getDonations,getDonationsdetail })(Home);
