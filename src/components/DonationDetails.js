@@ -5,7 +5,7 @@ import { Link, Redirect } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./stylescomponent/Slider.scss"
-import axios from "axios"
+import axios from "axios";
 
 class DonationDetails extends React.Component {
   constructor(props) {
@@ -29,7 +29,6 @@ class DonationDetails extends React.Component {
     .catch(res=>{console.log(res)})
   }
 
-  
   
   
   
@@ -79,11 +78,6 @@ class DonationDetails extends React.Component {
           <Carousel responsive={responsive} className="w-event-parent">
                 {mappedPhotos}
             </Carousel>
-
-
-
-
-            
 
           <h1>{this.props.details.donation_title}</h1>
           <h2>{this.props.details.category_name}</h2>
