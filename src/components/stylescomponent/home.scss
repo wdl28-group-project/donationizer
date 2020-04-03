@@ -1,0 +1,72 @@
+.header-container{
+    position:sticky;
+    background-color:rgb(245, 240, 240);
+    width: 100%;
+    height: 10vh;
+    top: 0;
+}
+.search-container{
+    width:100vw;
+    height:8vh;
+    background-color:#ff3f55;
+    position:sticky;
+    top:10vh;
+}
+.donation-category-container{
+    display: flex;
+    justify-content:space-around
+}
+.category-container{
+    width: 15vw;
+    position:sticky;
+}
+.donation-container{
+    width: 83vw;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    text-align: center;   
+    margin-top: -50px; 
+}
+
+.search{
+    height: 60%;
+    width: 25%;
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+#input{
+    width: 80%;
+    line-height: 20px;
+    font-size: 16px;
+    border: 1px solid transparent;
+    outline: none;
+}
+.donation-card-container{
+    margin-top: 10vh;
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));
+    grid-template-rows: auto;
+    
+    
+}
+
+.donation-card{
+    width: 200px;
+    font-size: 15px;
+    margin: 10px;
+    border-radius: 15px;
+}
+    
+        
+    
+img{
+    width: 100%;
+    height: 180px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+
+
+

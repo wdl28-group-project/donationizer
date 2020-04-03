@@ -1,29 +1,64 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { getDonationsByCategory } from "../redux/reducers/donationReducer";
+import { getDonationsByCategory,getDonations } from "../redux/reducers/donationReducer";
+import {FaTshirt,FaBasketballBall,FaHeadphonesAlt,FaBabyCarriage} from 'react-icons/fa';
+import {MdComputer} from 'react-icons/md';
+import {GoHome,GoTools} from 'react-icons/go';
+import {GiSofa,GiWhiteBook} from 'react-icons/gi';
+
+
 class Categories extends React.Component{ 
     selectCategory=(category)=>{
         // console.log(category);
-        this.props.getDonationsByCategory(category);
+        this.props.getDonationsByCategory(category).then(res=>{
+            if(this.props.donations.length === 0){
+                return(
+                    this.props.getDonations()
+                )
+            }
+        })
     }
-
-        // filterCategory=()=>{
-    //     axios.get(`/api/donations/category?category=Housing`).then(res=>{
-    //         console.log(res.data)
-    //     })
-    // }
+    
     render(){
+        // console.log(this.props.donations)
         return(
-            <div>
-                <p onClick={()=>this.selectCategory('Housing')} name="Housing">Housing</p>
-                <p onClick={()=>this.selectCategory('Clothing')} name="Clothing">Clothing</p>
-                <p onClick={()=>this.selectCategory('Electronics')} name="Electronics">Electronics</p>
-                <p onClick={()=>this.selectCategory('Home')} name="Home&Garden">Home & Garden</p>
-                <p onClick={()=>this.selectCategory('Education')} name="Education">Education</p>
-                <p onClick={()=>this.selectCategory('Sports')} name="Sports&Games">Sports & Games</p>
-                <p onClick={()=>this.selectCategory('Movies')} name="Movies">Movies & Music</p>
-                <p onClick={()=>this.selectCategory('Baby')} name="Baby&Child">Baby & Child</p>
-                <p onClick={()=>this.selectCategory('Other')} name="Other">Other</p>
+            <div className="category-container">
+                <div className="icon-container" onClick={()=>this.selectCategory('Furniture')}>
+                    <GiSofa name="Furniture" className="icon" size='50px'/>
+                    <p>Furniture</p>
+                </div>                
+                <div className="icon-container" onClick={()=>this.selectCategory('Clothing')}>
+                    <FaTshirt name="Clothing" className="icon"/>
+                    <p>Clothing</p> 
+                </div>
+                <div className="icon-container" onClick={()=>this.selectCategory('Electronics')}>
+                    <MdComputer name="Electronics" className="icon"/>
+                    <p>Electronics</p>
+                </div>
+                <div className="icon-container" onClick={()=>this.selectCategory('Home')}>
+                    <GoHome name="Home&Garden" className="icon"/>
+                    <p>Home & Garden</p>
+                </div>
+                <div className="icon-container" onClick={()=>this.selectCategory('Education')}>
+                    <GiWhiteBook name="Education" className="icon" />
+                    <p>Education</p>
+                </div>
+                <div className="icon-container" onClick={()=>this.selectCategory('Sports')}>
+                    <FaBasketballBall name="Sports&Games" className="icon"/>
+                    <p>Sports & Games</p>
+                </div>
+                <div className="icon-container" onClick={()=>this.selectCategory('Movies')}>
+                    <FaHeadphonesAlt name="Movies" className="icon"/>
+                    <p>Movies & Music</p>
+                </div>
+                <div className="icon-container" onClick={()=>this.selectCategory('Baby')}>
+                    <FaBabyCarriage name="Baby&Child" className="icon"/>
+                    <p>Baby & Child</p>
+                </div>
+                <div className="icon-container" onClick={()=>this.selectCategory('Other')}>
+                    <GoTools name="Other" className="icon"/>
+                    <p>Other</p>
+                </div>
             </div>
         )
     }
@@ -34,5 +69,5 @@ const mapStateToProps = reduxState => {
     };
   };
   
-  export default connect(mapStateToProps, { getDonationsByCategory })(Categories);
+  export default connect(mapStateToProps, { getDonationsByCategory,getDonations })(Categories);
   

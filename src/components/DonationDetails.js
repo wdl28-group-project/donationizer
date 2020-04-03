@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { connect } from 'react-redux';
 import {
@@ -9,6 +10,16 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import './stylescomponent/Slider.scss';
 import axios from 'axios';
+=======
+import React from "react";
+import { connect } from "react-redux";
+import { getDonations, getDonationsdetail} from "../redux/reducers/donationReducer";
+import { Link, Redirect } from "react-router-dom";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import "./stylescomponent/Slider.scss"
+import axios from "axios";
+>>>>>>> master
 
 class DonationDetails extends React.Component {
   constructor(props) {
@@ -34,6 +45,12 @@ class DonationDetails extends React.Component {
       });
   }
 
+<<<<<<< HEAD
+=======
+  
+  
+  
+>>>>>>> master
   render() {
     const mappedPhotos = this.state.pics.map((post, indx) => {
       console.log(post);
@@ -73,9 +90,16 @@ class DonationDetails extends React.Component {
       return (
         <div>
           DonationDetails
+<<<<<<< HEAD
           <Carousel responsive={responsive} className='w-event-parent'>
             {mappedPhotos}
           </Carousel>
+=======
+          <Carousel responsive={responsive} className="w-event-parent">
+                {mappedPhotos}
+            </Carousel>
+
+>>>>>>> master
           <h1>{this.props.details.donation_title}</h1>
           <h2>{this.props.details.category_name}</h2>
           <h3>{this.props.details.donation_desc}</h3>
