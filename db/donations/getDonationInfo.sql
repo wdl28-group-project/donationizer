@@ -1,4 +1,4 @@
-SELECT d.donation_title,d.donation_desc,d.view_count,d.post_date,c.category_name 
+SELECT d.donation_title,d.donation_desc,d.view_count,d.post_date,c.category_name, d.donation_id 
 FROM donations d
 JOIN categories c 
 ON c.category_id = d.category
