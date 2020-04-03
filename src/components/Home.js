@@ -1,37 +1,79 @@
 import React from "react";
 import Categories from "../components/Categories";
-import {connect} from 'react-redux';
+import { connect } from "react-redux";
+import Footer from "./Footer";
+import { MdSearch } from "react-icons/md";
+import {Link} from 'react-router-dom';
 import { getDonations, getDonationsdetail } from "../redux/reducers/donationReducer";
-import {Link, Redirect} from "react-router-dom"
+
 
 class Home extends React.Component {
+  state = { search: "" };
   componentDidMount() {
     this.props.getDonations();
   }
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
   render() {
-    const mappedDonation= this.props.donations.map(el=>{
-        return(
-          // <Link to="/donation-details" id={el.donation_id}>
-            <div 
-            onClick={()=>this.props.getDonationsdetail(el.donation_id)}
-             key={el.donation_id} 
-             style={{'border':'1px solid black','width':'40vw'}}>
+    console.log(this.props.locations)
+    const { search } = this.state;
+    let mappedDonation = this.props.donations.map((el, i) => {
+      return (
+        <Link to="/donation-details">
+          <div
+            key={el.donation_title + i}
+            className="donation-card"
+            style={{ border: "1px solid black"}}
+          >
+            <img src={el.donation_photo} alt="donation" />
+            <p>{el.donation_title}</p>
+            <p>{el.post_location}</p>
+          </div>
+        </Link>
+      );
+    });
+    let filteredDonation = this.props.donations
+      .filter(el => {
+        return el.donation_title.toLowerCase().includes(search.toLowerCase());
+      })
+      .map((el, i) => {
+        return (
+          <Link to="/donation-details">
+            <div
+              key={el.donation_title + i}
+              className="donation-card"
+              style={{ border: "1px solid black"}}
+            >
+              <img src={el.donation_photo} alt="donation" />
+              <div>
                 <p>{el.donation_title}</p>
                 <p>{el.post_location}</p>
-                <img src={el.donation_photo} width="200px"/>
+              </div>
             </div>
-          // </Link>
-        )
-
-    })
-// a rederect if there is a product detail in redux state
-if(this.props.details.length>0){return <Redirect to="/donation-details"/>}
+          </Link>
+        );
+      });
     return (
-      <div>
-        <h3>Home Component</h3>
-        <Link to="/profile"><button>Profile</button></Link>
-        {mappedDonation}
+      <div className="parent-container">
         <Categories />
+        <div className="donation-container">
+          <div className="search-container">
+            <div className="search">
+              <MdSearch size="25px" />
+              <input
+                placeholder="search donations"
+                id="input"
+                name="search"
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+          <div className="donation-card-container">
+            {!search ? mappedDonation : filteredDonation && filteredDonation.length === 0 ? mappedDonation:filteredDonation}
+          </div>
+        </div>
+        <Footer />
       </div>
     );
   }

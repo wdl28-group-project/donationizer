@@ -10,7 +10,7 @@ class Nav extends Component{
         if( this.props.user.user_id ) return <LoggedIn user={this.props.user} logoutUser={this.props.logoutUser} />
 
         return(
-            <div>
+            <div className="header-container">
                 <LoggedOut />
             </div>
         );

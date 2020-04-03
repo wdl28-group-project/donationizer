@@ -1,0 +1,19 @@
+.icon-container{
+    display: flex;
+    width:20vw;
+    box-sizing: border-box;
+}
+.icon{
+    margin: 5px 8px;
+    width:50px;
+    height: 50px;
+    border-radius:25px;
+    color: white;
+    background-color:#ff3f55;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.icon:hover{
+    border-radius: 15px;
+    background-color:cadetblue;
+}
