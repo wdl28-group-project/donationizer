@@ -1,7 +1,8 @@
 import axios from "axios";
 const initialState = {
   donations: [],
-  loading: false
+  loading: false,
+  details:[]
 };
 
 //constants
@@ -26,7 +27,8 @@ export function getDonationsByCategory(category) {
   };
 };
 export function getDonationsdetail(id) {
-  let data = axios.get(`/api/donation/:${id}`)
+  let data = axios.get(`/api/donation/${id}`)
+  console.log(data)
   return {
     type: GET_DONATION_DETAIL,
     payload: data
@@ -34,6 +36,7 @@ export function getDonationsdetail(id) {
 };
 //reducer
 export default function donationReducer(state = initialState,action) {
+  console.log(state.details)
   const { type, payload } = action;
   switch (type) {
     case `${GET_DONATIONS}_PENDING`:
@@ -45,7 +48,8 @@ export default function donationReducer(state = initialState,action) {
       return {
         ...state,
         loading:false,
-        donations: payload.data
+        donations: payload.data,
+        details: []
       };
     case `${GET_DONATIONS_BY_CATEGORY}_PENDING`:
       return {
@@ -63,7 +67,7 @@ export default function donationReducer(state = initialState,action) {
         ...state,
         loading: true
       }  
-    case `${GET_DONATION_DETAIL}_FUFILLED`:
+    case `${GET_DONATION_DETAIL}_FULFILLED`:
       return{
         ...state,
         loading:false,

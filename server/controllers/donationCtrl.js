@@ -69,7 +69,7 @@ updateViewCount: function (req, res) {
         const donation_id = +req.params.id;
         const donationPhotos = await db.donations.getDonationPhotos(donation_id);
         res.status(200).json(donationPhotos);
-        // console.log(donationPhotos);
+        console.log(donationPhotos);
     },
     getDonationInfo: async (req,res)=>{
         const db = req.app.get('db');

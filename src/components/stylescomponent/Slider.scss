@@ -1,0 +1,39 @@
+$max-width: 1100px;
+$max-second-width: 690px;
+$max-third-width: 405px;
+
+@mixin tablet {
+  @media (max-width: #{$max-width}) {
+    @content;
+  }
+}
+@mixin phone {
+  @media (max-width: #{$max-second-width}) {
+    @content;
+  }
+}
+
+@mixin xphone {
+  @media (max-width: #{$max-second-width}) {
+    @content;
+  }
+}
+
+react-multi-carousel-list{
+  height: 350px;
+  background-color: $second;
+  border-radius: $margin-1;
+  margin: 0 30px;
+  @include tablet() {
+    height:330px ;
+    margin:0;
+  }
+  @include phone() {
+    height:300px ;
+    padding: 10px 5px;
+  }
+  @include xphone() {
+    margin:0 10px;
+    padding: 5px;
+  }
+}
