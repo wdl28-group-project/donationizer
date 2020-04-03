@@ -4,6 +4,7 @@ import { getDonations, getDonationsdetail} from "../redux/reducers/donationReduc
 import { Link, Redirect } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import "./stylescomponent/Slider.scss"
 import axios from "axios"
 
 class DonationDetails extends React.Component {
@@ -36,12 +37,14 @@ class DonationDetails extends React.Component {
     const mappedPhotos =  this.state.pics.map((post, indx) => {
         console.log(post)
         return (
-          <img
-            key={indx}
-            style={{ minheight: "10vh", maxHeight: "20vh" }}
-            src={post}
-            alt="Alt text"
-          />
+          <div  key={indx} className="w-event-container">
+            <img
+              style={{ minheight: "10vh", maxHeight: "20vh" }}
+              src={post}
+              alt="Alt text"
+              className="w-event-image-container"
+            />
+          </div>
       );
     })
     const responsive = {

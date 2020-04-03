@@ -2,6 +2,15 @@ $max-width: 1100px;
 $max-second-width: 690px;
 $max-third-width: 405px;
 
+$primary: #ea7070;
+$second: #8ac6d1;
+
+$margin-1: 5px;
+$margin-2: 10px;
+$margin-3: 15px;
+$width1: 100%;
+$width2: 50%;
+
 @mixin tablet {
   @media (max-width: #{$max-width}) {
     @content;
