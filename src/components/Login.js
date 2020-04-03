@@ -16,7 +16,7 @@ function Login(props){
         updateState({[e.target.name]: e.target.value });
     }
     function handleKeyPress(e){
-        if(e.key == 'Enter'){
+        if(e.key === 'Enter'){
             let { username, password } = props;
             if(username && password ){
                 handleLogin();
