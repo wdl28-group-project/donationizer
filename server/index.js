@@ -12,7 +12,7 @@ const io = require('socket.io')(
   app.listen(SERVER_PORT, () => console.log('Party on, Wayne! CHAT is ON!!!'))
 );
 
-let userCount = 1;
+let userCount = 0;
 
 io.on('connection', socket => {
   userCount++;
@@ -21,7 +21,7 @@ io.on('connection', socket => {
 
   socket.emit('SET_USERNAME', username);
   io.sockets.emit('CREATE_MESSAGE', {
-    content: `${username} connected`
+    content: console.log(`${username} connected`)
   });
 
   socket.on('SEND_MESSAGE', messageObj => {
@@ -56,10 +56,8 @@ app.use(
   })
 );
 
-// app.listen(SERVER_PORT, () => console.log());
-
 // Auth
-let { registerUser, login, logout, editUser } = authCtrl;
+let { registerUser, login, logout, editUser, getUser } = authCtrl;
 app.post('/auth/register', registerUser);
 app.post('/auth/login', login);
 app.get('/auth/logout', logout);
@@ -75,6 +73,7 @@ const {
   getDonations,
   postDonation,
   deleteDonation,
+  getUserFavorites,
   updateViewCount
 } = donationCtrl;
 
@@ -82,6 +81,7 @@ app.get('/api/donations', getDonations);
 app.post('/api/donation/', postDonation);
 app.put('/api/viewCount/:id', updateViewCount);
 app.delete('/api/donation/:id', deleteDonation);
+app.get('/api/donations/favorites/:id', getUserFavorites)
 
 app.get('/api/donations/category', getDonationByCategory);
 app.get('/api/donations/filter', getFilteredDonations);
