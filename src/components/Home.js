@@ -5,8 +5,6 @@ import Footer from "./Footer";
 import { MdSearch } from "react-icons/md";
 import {Link,Redirect} from 'react-router-dom';
 import { getDonations, getDonationsdetail } from "../redux/reducers/donationReducer";
-
-
 class Home extends React.Component {
   state = { search: "" };
   componentDidMount() {
@@ -87,8 +85,6 @@ const mapStateToProps = reduxState => {
   return {
     donations: reduxState.donation.donations,
     details: reduxState.donation.details
-
   };
 };
-
 export default connect(mapStateToProps, { getDonations,getDonationsdetail })(Home);
