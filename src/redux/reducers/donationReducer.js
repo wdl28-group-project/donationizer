@@ -10,6 +10,7 @@ const GET_DONATIONS = "GET_DONATIONS";
 const GET_DONATIONS_BY_CATEGORY = 'GET_DONATIONS_BY_CATEGORY';
 const GET_DONATION_DETAIL= 'GET_DONATION_DETAIL'
 const UPDATE_VIEW_COUNT='UPDATE_VIEW_COUNT'
+const POST_DONATION='POST_DONATION'
 
 //action creator
 export function getDonations() {
@@ -42,6 +43,13 @@ export function updateViewCount(id) {
     payload: data
   };
 };
+export function postDonation(obj){
+  let data =    axios.put( '/api/donation/', obj).then(res => console.log(res))
+  return {
+    type: UPDATE_VIEW_COUNT,
+    payload: data
+  };
+}
 //reducer
 export default function donationReducer(state = initialState,action) {
   const { type, payload } = action;
@@ -89,7 +97,19 @@ export default function donationReducer(state = initialState,action) {
         return{
           ...state,
           loading:false,
+          details: payload.data
         }
+        case  `${ POST_DONATION}_PENDING`:
+          return{
+            ...state,
+            loading: true
+          }
+          case `${POST_DONATION}_FULFILLED`:
+            return{
+              ...state,
+              loading:false,
+              payload: payload.data
+            }
       
     default:
       return state;
