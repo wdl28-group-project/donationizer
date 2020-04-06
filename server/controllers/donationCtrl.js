@@ -19,6 +19,16 @@ postDonation: function (req, res){
             res.status(500).json("internal server error")
         })
 },
+postFavourite: function (req,res){
+    const db = req.app.get('db')
+    const {donation_id, user_id}= req.body
+    db.donations.addFavourite(donation_id, user_id)
+    .then(post=>{ console.log(post)
+        res.sendStatus(200)})
+    .catch(error=> {console.log(error)
+    res.send(500).json("you can't fave")
+    })
+},
 
 deleteDonation:  function (req, res) {
     const db = req.app.get('db')
@@ -37,12 +47,12 @@ deleteDonation:  function (req, res) {
 updateViewCount: function (req, res) {
     const db = req.app.get('db');
     const donation_id = +req.params.id
-   const { view_count} = req.body;
+//    const {view_count} = req.body;
     
-   db.donations.updateViewCount(donation_id, view_count)
+   db.donations.updateViewCount(donation_id)
         .then(put =>{
-            console.log(`view count hav changed to ${put}`)
-            res.sendStatus(200)
+            console.log(put)
+            res.status(200).send(put[0])
         })
         .catch(error => {
             console.log(error)
@@ -77,5 +87,11 @@ updateViewCount: function (req, res) {
         const donationInfo = await db.donations.getDonationInfo(donation_id);
         res.status(200).json(donationInfo);
         // console.log(donationInfo);
+    },
+    getUserFavorites: async (req, res) => {
+    const db = req.app.get('db');
+    const user_id = +req.params.id;
+    const favorites = await db.donations.getUserFavoriteDonations(user_id)
+    res.status(200).json(favorites);
     }
 }
