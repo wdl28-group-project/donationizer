@@ -74,7 +74,7 @@ const {
   postDonation,
   deleteDonation,
   updateViewCount,
-  postFavourite
+  postFavourite,
   getUserFavorites
 } = donationCtrl;
 

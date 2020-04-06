@@ -24,6 +24,7 @@ class Home extends React.Component {
             className="donation-card"
             style={{ border: "1px solid black"}}
             onClick={()=>this.props.getDonationsdetail(el.donation_id)}
+
           >
             <img src={el.donation_photo} alt="donation" />
             <p>{el.donation_title}</p>
