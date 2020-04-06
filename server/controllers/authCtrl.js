@@ -84,11 +84,16 @@ const editUser =  async (req, res) => {
     .send(req.session.user)
 }
 
-
+const getUser = (req, res) => {
+        res
+        .status(200)
+        .send(req.session.user);
+    }
 
 module.exports = {
     registerUser,
     login,
     logout,
-    editUser
+    editUser,
+    getUser
 }

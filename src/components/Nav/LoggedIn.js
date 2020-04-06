@@ -8,7 +8,7 @@ class LoggedIn extends Component{
     }
     render(){
         return(
-            <div>
+            <div  className="header-container">
                 <nav className='loggedIn'>
                     <ul className='menu'>
                         <li>

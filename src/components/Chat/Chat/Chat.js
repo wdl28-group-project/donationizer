@@ -48,6 +48,7 @@ class Chat extends Component {
   handlerCreateMessage = message => {
     message.user = this.state.username;
     socket.emit('SEND_MESSAGE', message);
+    console.log(message)
   };
 
   render() {

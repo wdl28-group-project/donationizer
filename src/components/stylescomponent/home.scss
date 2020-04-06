@@ -1,10 +1,16 @@
+@import './Main.scss';
+
 .header-container{
     position:sticky;
     background-color:rgb(245, 240, 240);
     width: 100%;
     height: 10vh;
     top: 0;
-}
+    margin-top: -20px;
+    @include tablet() {
+        background-color:rgb(226, 160, 160);
+    }
+  }
 .search-container{
     height:8vh;
     background-color:#ff3f55;
@@ -39,6 +45,7 @@
     background-color: white;
     border-radius: 5px;
     padding: 5px auto;
+    box-sizing: border-box;
     display: flex;
     align-items: center;   
 }
@@ -52,15 +59,16 @@
 .donation-card-container{
     margin-top: 10vh;
     display: grid;
-    grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(13rem,auto));
     grid-template-rows: auto;
+    grid-row-gap: 1em;
 }
 
 .donation-card{
     width: 200px;
     font-size: 15px;
     border-radius: 15px;
-    margin: 10px 0;
+    justify-self:center;
 }
     
         
@@ -70,6 +78,12 @@ img{
     height: 180px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+}
+.footer-container{
+    height: 50px;
+    background-color: cadetblue;
+    margin-top: 300px;
+
 }
 
 

@@ -11,9 +11,8 @@ const GET_DONATIONS_BY_CATEGORY = 'GET_DONATIONS_BY_CATEGORY';
 const GET_DONATION_DETAIL= 'GET_DONATION_DETAIL'
 
 //action creator
-export function getDonations() {
-  let data = axios.get("/api/donations");
-  
+export function getDonations(id) {
+  let data = axios.get(`/api/donations/${id}`); 
   return {
     type: GET_DONATIONS,
     payload: data
@@ -36,7 +35,7 @@ export function getDonationsdetail(id) {
 };
 //reducer
 export default function donationReducer(state = initialState,action) {
-  console.log(state.details)
+  // console.log(state.details)
   const { type, payload } = action;
   switch (type) {
     case `${GET_DONATIONS}_PENDING`:
