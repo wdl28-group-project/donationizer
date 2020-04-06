@@ -13,9 +13,8 @@ const UPDATE_VIEW_COUNT='UPDATE_VIEW_COUNT'
 const POST_DONATION='POST_DONATION'
 
 //action creator
-export function getDonations() {
-  let data = axios.get("/api/donations");
-  
+export function getDonations(id) {
+  let data = axios.get(`/api/donations/${id}`); 
   return {
     type: GET_DONATIONS,
     payload: data
@@ -52,6 +51,7 @@ export function postDonation(obj){
 }
 //reducer
 export default function donationReducer(state = initialState,action) {
+  // console.log(state.details)
   const { type, payload } = action;
   switch (type) {
     case `${GET_DONATIONS}_PENDING`:

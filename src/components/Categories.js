@@ -8,12 +8,14 @@ import {GiSofa,GiWhiteBook} from 'react-icons/gi';
 
 
 class Categories extends React.Component{ 
+    state = {user_id:0};
     selectCategory=(category)=>{
         // console.log(category);
         this.props.getDonationsByCategory(category).then(res=>{
+            let id = this.props.user.length !== 0 ? this.props.user.user_id : this.state.user_id; 
             if(this.props.donations.length === 0){
                 return(
-                    this.props.getDonations()
+                 this.props.getDonations(id)
                 )
             }
         })
@@ -65,7 +67,10 @@ class Categories extends React.Component{
 }
 const mapStateToProps = reduxState => {
     return {
-      donations: reduxState.donation.donations
+      donations: reduxState.donation.donations,
+      user: reduxState.authReducer.user
+      
+
     };
   };
   
