@@ -57,11 +57,12 @@ app.use(
 );
 
 // Auth
-let { registerUser, login, logout, editUser } = authCtrl;
+let { registerUser, login, logout, editUser, getUser } = authCtrl;
 app.post('/auth/register', registerUser);
 app.post('/auth/login', login);
 app.get('/auth/logout', logout);
 app.put('/auth/editUser', editUser);
+app.get('/auth/getUser', getUser);
 
 //Donation Controller
 const {
@@ -74,12 +75,14 @@ const {
   deleteDonation,
   updateViewCount,
   postFavourite
+  getUserFavorites
 } = donationCtrl;
 
 app.get('/api/donations', getDonations);
 app.post('/api/donation/', postDonation);
 app.put('/api/viewCount/:id', updateViewCount);
 app.delete('/api/donation/:id', deleteDonation);
+app.get('/api/donations/favorites/:id', getUserFavorites)
 
 app.get('/api/donations/category', getDonationByCategory);
 app.get('/api/donations/filter', getFilteredDonations);
