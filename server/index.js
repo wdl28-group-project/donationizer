@@ -57,12 +57,13 @@ app.use(
 );
 
 // Auth
-let { registerUser, login, logout, editUser, getUser } = authCtrl;
+let { registerUser, login, logout, editUser, getUser, editPassword } = authCtrl;
 app.post('/auth/register', registerUser);
 app.post('/auth/login', login);
 app.get('/auth/logout', logout);
 app.put('/auth/editUser', editUser);
 app.get('/auth/getUser', getUser);
+app.put('/auth/editPassword', editPassword);
 
 //Donation Controller
 const {
@@ -73,8 +74,9 @@ const {
   getDonations,
   postDonation,
   deleteDonation,
-  getUserFavorites,
-  updateViewCount
+  updateViewCount,
+  postFavourite,
+  getUserFavorites
 } = donationCtrl;
 
 app.get('/api/donations/category', getDonationByCategory);
@@ -88,3 +90,4 @@ app.put('/api/viewCount/:id', updateViewCount);
 app.delete('/api/donation/:id', deleteDonation);
 app.get('/api/donations/favorites/:id', getUserFavorites)
 
+app.post('/api/favourites', postFavourite)
