@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { logoutUser , getUser} from '../redux/reducers/authReducer';
+import { getUser} from '../redux/reducers/authReducer';
 import { postDonation } from '../redux/reducers/donationReducer';
 import axios from "axios"
 
@@ -16,14 +16,19 @@ constructor(){
         view_count:0,
         isDonated: false,
         Category:0,
-        post_date:""
+        post_date:"",
+        user_id: 0,
+        location: ""
 
 
     }
 }
 
 componentDidMount(){
-    getUser()
+    this.props.getUser()
+    this.setState({  user: this.props.user,
+        user_id: this.props.user_id,
+        location: this.props.location})
 }
 
 

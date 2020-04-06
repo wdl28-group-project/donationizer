@@ -59,6 +59,20 @@ updateViewCount: function (req, res) {
             res.status(500).json("something is wrong")
         })
 },
+postDonationPhoto: function (req,res){
+    const db = req.app.get('db');
+    const {donation_id} = req.body
+    db.donations.postDonationPhoto()
+    .then(result=>{
+        console.log(result)
+        res.status(200).json("working well")
+    })
+    .catch(result=>{
+        console.log(result)
+        res.status(500).json("massive error")
+    })
+
+},
     getDonationByCategory:async (req,res)=>{
         const db = req.app.get('db');
         const {category} = req.query;
