@@ -1,15 +1,28 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { logoutUser } from '../redux/reducers/authReducer';
+import axios from "axios"
 
 
  class PostDonation extends Component {
 constructor(){
     super()
     this.state={
-        Category:0
+        donator_id:0,
+        donation_title: "",
+        donation_desc: "",
+        post_location: "",
+        view_count:0,
+        isDonated: false,
+        Category:0,
+        post_date:""
+
 
     }
+}
+
+componentDidMount(){
+
 }
 
 
@@ -38,9 +51,11 @@ constructor(){
     }
 }
 const mapStateToProps = state => {
-    let { user } = state.authReducer;
+    let { user, user_id,location } = state.authReducer;
     return{
-        user
+        user,
+        user_id,
+        location
     }
 }
 

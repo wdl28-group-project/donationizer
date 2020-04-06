@@ -17,6 +17,7 @@ class DonationDetails extends React.Component {
   }
 
   componentDidMount() {
+  if(this.props.detail.length === 0){ return console.log()} else if(this.props.detail.length>0){   
     axios.get(`/api/donation/${this.props.details.donation_id}/photos`)
     .then(res=>{ console.log(res)
         var url=[]
@@ -27,7 +28,7 @@ class DonationDetails extends React.Component {
         }
     })
     .catch(res=>{console.log(res)})
-  }
+  }}
 
   
   
@@ -36,14 +37,12 @@ class DonationDetails extends React.Component {
     const mappedPhotos =  this.state.pics.map((post, indx) => {
         console.log(post)
         return (
-          <div  key={indx} className="w-event-container">
             <img
-              style={{ minheight: "10vh", maxHeight: "20vh" }}
+              style={{ minheight: "100vh", maxHeight: "100vh", minWidth: "50vw", maxWidth: "60vw" }}
               src={post}
               alt="Alt text"
               className="w-event-image-container"
             />
-          </div>
       );
     })
     const responsive = {
