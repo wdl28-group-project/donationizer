@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { logoutUser } from '../redux/reducers/authReducer';
+import { logoutUser , getUser} from '../redux/reducers/authReducer';
 import { postDonation } from '../redux/reducers/donationReducer';
 import axios from "axios"
 
@@ -23,7 +23,7 @@ constructor(){
 }
 
 componentDidMount(){
-    
+    getUser()
 }
 
 
