@@ -21,6 +21,12 @@ constructor(){
 
     }
 }
+
+componentDidMount(){
+    
+}
+
+
 post=()=>{
     console.log(this.state)
     this.props.postDonation(this.state)
