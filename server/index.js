@@ -57,12 +57,13 @@ app.use(
 );
 
 // Auth
-let { registerUser, login, logout, editUser, getUser } = authCtrl;
+let { registerUser, login, logout, editUser, getUser, editPassword } = authCtrl;
 app.post('/auth/register', registerUser);
 app.post('/auth/login', login);
 app.get('/auth/logout', logout);
 app.put('/auth/editUser', editUser);
 app.get('/auth/getUser', getUser);
+app.put('/auth/editPassword', editPassword);
 
 //Donation Controller
 const {
