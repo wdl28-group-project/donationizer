@@ -76,7 +76,8 @@ const {
   deleteDonation,
   updateViewCount,
   postFavourite,
-  getUserFavorites
+  getUserFavorites,
+  getUserDonations
 } = donationCtrl;
 
 app.get('/api/donations/category', getDonationByCategory);
@@ -88,6 +89,7 @@ app.post('/api/donation/', postDonation);
 app.get('/api/donation/:id/photos', getDonationPhotos);
 app.put('/api/viewCount/:id', updateViewCount);
 app.delete('/api/donation/:id', deleteDonation);
-app.get('/api/donations/favorites/:id', getUserFavorites)
+app.get('/api/donations/favorites/:id', getUserFavorites);
+app.get('/api/donations/users/:id', getUserDonations);
 
 app.post('/api/favourites', postFavourite)
