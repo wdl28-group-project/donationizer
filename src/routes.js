@@ -4,7 +4,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 import DonationDetails from './components/DonationDetails';
-import Profile from './components/Profile';
+import Profile from './components/Profile/Profile';
 import AddDonation from './components/AddDonation';
 import Chat from './components/Chat/Chat/Chat';
 import PostDonation from "./components/PostDonation"

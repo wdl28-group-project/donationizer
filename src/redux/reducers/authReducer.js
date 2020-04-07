@@ -7,7 +7,7 @@ const initialState = {
   location: "",
   donation_count: null,
   profile_pic: "",
-  user: {},
+  user:[],
   loading: false
 };
 
@@ -99,7 +99,7 @@ const authReducer = (state = initialState, action) => {
         location: "",
         donation_count: null,
         profile_pic: "",
-        user: {},
+        user:[],
         loading: false
       };
     case `${LOGIN_USER}_PENDING`:
@@ -123,7 +123,7 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        user: {}
+        user:[]
       };
     case `${REGISTER_USER}_PENDING`:
       return {
