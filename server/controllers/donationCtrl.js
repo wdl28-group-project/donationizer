@@ -93,9 +93,18 @@ updateViewCount: function (req, res) {
         // console.log(donationInfo);
     },
     getUserFavorites: async (req, res) => {
-    const db = req.app.get('db');
-    const user_id = +req.params.id;
-    const favorites = await db.donations.getUserFavoriteDonations(user_id)
-    res.status(200).json(favorites);
+        const db = req.app.get('db');
+        const user_id = +req.params.id;
+        const favorites = await db.donations.getFavorites(user_id)
+        res.status(200).json(favorites);
+    },
+    getUserDonations: async (req, res) => {
+        const db = req.app.get('db');
+        let user_id = req.params.id;
+        var userDonations = await db.donations.getUserDonations( user_id );
+
+        res
+        .status(200)
+        .send(userDonations);
     }
 }

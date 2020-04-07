@@ -2,7 +2,9 @@ import axios from "axios";
 const initialState = {
   donations: [],
   loading: false,
-  details:[]
+  details:[],
+  favorites: [],
+  myDonations: []
 };
 
 //constants
@@ -10,7 +12,9 @@ const GET_DONATIONS = "GET_DONATIONS";
 const GET_DONATIONS_BY_CATEGORY = 'GET_DONATIONS_BY_CATEGORY';
 const GET_DONATION_DETAIL= 'GET_DONATION_DETAIL'
 const UPDATE_VIEW_COUNT='UPDATE_VIEW_COUNT'
-const POST_DONATION='POST_DONATION'
+const POST_DONATION='POST_DONATION';
+const GET_FAVORITE_DONATIONS = "GET_FAVORITE_DONATIONS";
+const GET_USER_DONATIONS = 'GET_USER_DONATIONS';
 
 //action creator
 export function getDonations(id) {
@@ -49,6 +53,21 @@ export function postDonation(obj){
     payload: data
   };
 }
+
+export const getFavorites = (user_id) => {
+  return{
+    type: GET_FAVORITE_DONATIONS,
+    payload: axios.get(`/api/donations/favorites/${user_id}`)
+  }
+}
+
+export const getUserDonations = (user_id) => {
+  return{
+    type: GET_USER_DONATIONS,
+    payload: axios.get(`/api/donations/users/${user_id}`)
+  }
+}
+
 //reducer
 export default function donationReducer(state = initialState,action) {
   // console.log(state.details)
@@ -93,24 +112,45 @@ export default function donationReducer(state = initialState,action) {
         ...state,
         loading: true
       }
-      case `${UPDATE_VIEW_COUNT}_FULFILLED`:
-        return{
+    case `${UPDATE_VIEW_COUNT}_FULFILLED`:
+      return{
+        ...state,
+        loading:false,
+        details: payload.data
+      }
+    case  `${ POST_DONATION}_PENDING`:
+      return{
+        ...state,
+        loading: true
+      }
+    case `${POST_DONATION}_FULFILLED`:
+      return{
+        ...state,
+        loading:false,
+        payload: payload.data
+      }
+    case `${GET_FAVORITE_DONATIONS}_PENDING`:
+        return {
+          ...state,
+          loading: true
+        };
+    case `${GET_FAVORITE_DONATIONS}_FULFILLED`:
+        return {
           ...state,
           loading:false,
-          details: payload.data
-        }
-        case  `${ POST_DONATION}_PENDING`:
-          return{
-            ...state,
-            loading: true
-          }
-          case `${POST_DONATION}_FULFILLED`:
-            return{
-              ...state,
-              loading:false,
-              payload: payload.data
-            }
-      
+          favorites: payload.data
+        };
+    case `${GET_USER_DONATIONS}_PENDING`:
+        return {
+          ...state,
+          loading: true
+        };
+    case `${GET_USER_DONATIONS}_FULFILLED`:
+        return {
+          ...state,
+          loading:false,
+          myDonations: payload.data
+        };
     default:
       return state;
   }
