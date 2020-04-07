@@ -5,8 +5,8 @@ import Footer from "./Footer";
 import { MdSearch } from "react-icons/md";
 import {Link,Redirect} from 'react-router-dom';
 import { getDonations, getDonationsdetail } from "../redux/reducers/donationReducer";
+import './stylescomponent/home.scss';
 
-import './stylescomponent/Home.scss';
 class Home extends React.Component {
   state = { search: "", user_id:0};
   componentDidMount() {

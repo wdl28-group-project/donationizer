@@ -9,7 +9,6 @@ function Login(props){
         let { username, password, loginUser } = props;
         loginUser(username, password)
         .catch( err => console.error(err) );
-        console.log(username, password);
     }
     function handleChange(e){
         let { updateState } = props;
