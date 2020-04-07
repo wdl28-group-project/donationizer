@@ -4,7 +4,7 @@ import { getDonationsByCategory,getDonations } from "../redux/reducers/donationR
 import {FaTshirt,FaBasketballBall,FaHeadphonesAlt,FaBabyCarriage} from 'react-icons/fa';
 import {MdComputer} from 'react-icons/md';
 import {GoHome,GoTools} from 'react-icons/go';
-import {GiSofa,GiWhiteBook} from 'react-icons/gi';
+import {GiSofa,GiWhiteBook,GiWorld} from 'react-icons/gi';
 
 
 class Categories extends React.Component{ 
@@ -25,6 +25,10 @@ class Categories extends React.Component{
         // console.log(this.props.donations)
         return(
             <div className="category-container">
+                <div className="icon-container" onClick={()=>this.selectCategory('All')}>
+                    <GiWorld name="all" className="icon"/>
+                    <p>All</p>
+                </div>                
                 <div className="icon-container" onClick={()=>this.selectCategory('Furniture')}>
                     <GiSofa name="Furniture" className="icon"/>
                     <p>Furniture</p>
