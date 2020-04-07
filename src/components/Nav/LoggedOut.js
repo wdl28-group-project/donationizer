@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 class LoggedOut extends Component{
     render(){
         return(
-            <div>
+            <div  className="header-container">
                 <nav className='loggedOut'>
                     <ul className='menu'>
                         <li>
