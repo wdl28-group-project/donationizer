@@ -84,6 +84,23 @@ const editUser =  async (req, res) => {
     .send(req.session.user)
 }
 
+const editPassword = async (req, res) => {
+    const db = req.app.get('db');
+
+    let { user_id } = req.session.user;
+
+    let { password } = req.body;
+
+    var salt = bcrypt.genSaltSync(12);
+    var hash = bcrypt.hashSync(password, salt);
+
+    let newPassword = await db.auth.editUserPassword(hash, user_id)
+    console.log(newPassword)
+
+    res.status(200)
+    .send(newPassword)
+}
+
 const getUser = (req, res) => {
         res
         .status(200)
@@ -95,5 +112,6 @@ module.exports = {
     login,
     logout,
     editUser,
-    getUser
+    getUser,
+    editPassword
 }

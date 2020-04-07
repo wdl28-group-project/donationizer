@@ -57,12 +57,13 @@ app.use(
 );
 
 // Auth
-let { registerUser, login, logout, editUser, getUser } = authCtrl;
+let { registerUser, login, logout, editUser, getUser, editPassword } = authCtrl;
 app.post('/auth/register', registerUser);
 app.post('/auth/login', login);
 app.get('/auth/logout', logout);
 app.put('/auth/editUser', editUser);
 app.get('/auth/getUser', getUser);
+app.put('/auth/editPassword', editPassword);
 
 //Donation Controller
 const {
@@ -73,17 +74,20 @@ const {
   getDonations,
   postDonation,
   deleteDonation,
-  getUserFavorites,
-  updateViewCount
+  updateViewCount,
+  postFavourite,
+  getUserFavorites
 } = donationCtrl;
 
-app.get('/api/donations', getDonations);
+app.get('/api/donations/category', getDonationByCategory);
+app.get('/api/donations/:id', getDonations);
+app.get('/api/donations/filter', getFilteredDonations);
+
+app.get('/api/donation/:id', getDonationInfo);
 app.post('/api/donation/', postDonation);
+app.get('/api/donation/:id/photos', getDonationPhotos);
 app.put('/api/viewCount/:id', updateViewCount);
 app.delete('/api/donation/:id', deleteDonation);
 app.get('/api/donations/favorites/:id', getUserFavorites)
 
-app.get('/api/donations/category', getDonationByCategory);
-app.get('/api/donations/filter', getFilteredDonations);
-app.get('/api/donation/:id/photos', getDonationPhotos);
-app.get('/api/donation/:id', getDonationInfo);
+app.post('/api/favourites', postFavourite)

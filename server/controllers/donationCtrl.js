@@ -1,8 +1,12 @@
 
 module.exports={
 getDonations:async(req, res)=>{
-        const db = req.app.get('db')
-        const donations = await db.donations.getDonations();
+        const db = req.app.get('db');
+        // const userId = req.session.user.user_id;
+        // let id = req.session.user ? userId : 0;
+        let id = +req.params.id;
+        const donations = await db.donations.getDonations(id);
+        console.log(req.params.id)
         res.status(200).json(donations)
 },
 
@@ -18,6 +22,16 @@ postDonation: function (req, res){
             console.log(error)
             res.status(500).json("internal server error")
         })
+},
+postFavourite: function (req,res){
+    const db = req.app.get('db')
+    const {donation_id, user_id}= req.body
+    db.donations.addFavourite(donation_id, user_id)
+    .then(post=>{ console.log(post)
+        res.sendStatus(200)})
+    .catch(error=> {console.log(error)
+    res.send(500).json("you can't fave")
+    })
 },
 
 deleteDonation:  function (req, res) {
@@ -37,12 +51,12 @@ deleteDonation:  function (req, res) {
 updateViewCount: function (req, res) {
     const db = req.app.get('db');
     const donation_id = +req.params.id
-   const { view_count} = req.body;
+//    const {view_count} = req.body;
     
-   db.donations.updateViewCount(donation_id, view_count)
+   db.donations.updateViewCount(donation_id)
         .then(put =>{
-            console.log(`view count hav changed to ${put}`)
-            res.sendStatus(200)
+            console.log(put)
+            res.status(200).send(put[0])
         })
         .catch(error => {
             console.log(error)
@@ -69,7 +83,7 @@ updateViewCount: function (req, res) {
         const donation_id = +req.params.id;
         const donationPhotos = await db.donations.getDonationPhotos(donation_id);
         res.status(200).json(donationPhotos);
-        console.log(donationPhotos);
+        // console.log(donationPhotos);
     },
     getDonationInfo: async (req,res)=>{
         const db = req.app.get('db');

@@ -28,37 +28,14 @@ $width2: 50%;
   }
 }
 
-react-multi-carousel-list{
-  height: 350px;
-  background-color: $second;
-  border-radius: $margin-1;
-  margin: 0 30px;
-  @include tablet() {
-    height:330px ;
-    margin:0;
-  }
-  @include phone() {
-    height:300px ;
-    padding: 10px 5px;
-  }
-  @include xphone() {
-    margin:0 10px;
-    padding: 5px;
-  }
+.react-multi-carousel-list{
+  width: 50vw;
+  height: 60vh;
+  margin: 30px;
+  border-radius:5px ;
+  border: solid 2px #ff3f55;
+img{
+  height: 500px;
 }
-.w-event-container {
-  height: 320px;
-  width: 95%;
-  border-radius: $margin-1;
-  margin: 10px 15px;
-  background-color: white;
-  @include tablet() {
-    height: 300px;
-  }
-  @include phone() {
-    height: 280px;
-  }
-  @include xphone() {
-    width: 88%;
-  }
-} 
+
+}
