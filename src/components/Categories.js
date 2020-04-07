@@ -26,7 +26,7 @@ class Categories extends React.Component{
         return(
             <div className="category-container">
                 <div className="icon-container" onClick={()=>this.selectCategory('Furniture')}>
-                    <GiSofa name="Furniture" className="icon" size='50px'/>
+                    <GiSofa name="Furniture" className="icon"/>
                     <p>Furniture</p>
                 </div>                
                 <div className="icon-container" onClick={()=>this.selectCategory('Clothing')}>

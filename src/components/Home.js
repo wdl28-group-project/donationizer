@@ -27,7 +27,6 @@ class Home extends React.Component {
           <div
             key={el.donation_title + i}
             className="donation-card"
-            style={{ border: "1px solid black"}}
             onClick={()=>this.props.getDonationsdetail(el.donation_id)}
 
           >

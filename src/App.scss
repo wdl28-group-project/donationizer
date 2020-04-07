@@ -1,7 +1,8 @@
-@import './components/stylescomponent/Categories.scss';
 @import './components/stylescomponent/Home.scss';
+// @import './components/stylescomponent/Main.scss';
 
 
 .App{
-    background-color:#fff7f7;
+    background-image:linear-gradient($white,rgb(139, 171, 187),$white);
+
 }

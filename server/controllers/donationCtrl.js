@@ -95,7 +95,8 @@ updateViewCount: function (req, res) {
     getUserFavorites: async (req, res) => {
     const db = req.app.get('db');
     const user_id = +req.params.id;
-    const favorites = await db.donations.getUserFavoriteDonations(user_id)
+    const favorites = await db.donations.getUserFavoriteDonations(user_id);
+    console.log(favorites)
     res.status(200).json(favorites);
     }
 }
