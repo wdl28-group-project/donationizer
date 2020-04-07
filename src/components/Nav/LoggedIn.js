@@ -15,6 +15,10 @@ class LoggedIn extends Component{
                             <Link to='/'>Home</Link>
                         </li>
                         <li>
+                            <Link to="/Post">post</Link>
+
+                        </li>
+                        <li>
                             <Link to='/profile'>Profile</Link>
                         </li>
                     </ul>

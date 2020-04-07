@@ -10,11 +10,11 @@ class LoggedOut extends Component{
                             <Link to='/'>Home</Link>
                         </li>
                         <li>
-                            <Link to='/login'>Login</Link>
-                        </li>
-                        <li>
                             <Link to="/Post">post</Link>
 
+                        </li>
+                        <li>
+                            <Link to='/login'>Login</Link>
                         </li>
                     </ul>
                 </nav>

@@ -6,7 +6,7 @@
 }
 .search-container{
     height:8vh;
-    background-color:#ff3f55;
+    background-image: linear-gradient(90deg, rgba(145,32,32,1) 0%, rgba(255,63,85,1) 52%, rgba(255,191,101,1) 100%);
     position:sticky;
     top:10vh;
     display: flex;
@@ -51,7 +51,7 @@
 .donation-card-container{
     margin-top: 10vh;
     display: grid;
-    grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(11.5rem,1fr));
     grid-template-rows: auto;
 }
 
@@ -60,8 +60,24 @@
     font-size: 15px;
     border-radius: 15px;
     margin: 10px 0;
+    border: 1px solid;
+    background:  linear-gradient(90deg, rgba(145,32,32,1) 0%, rgba(255,63,85,1) 52%, rgba(255,191,101,1) 100%);
+    
 }
     
+.donation-card:hover{
+    width: 220px;
+    height: inherit + 20px;
+    font-size: 15px;
+    border-radius: 15px;
+    margin: 10px 0;
+    border: 1px solid;
+    box-shadow: 0px 0px 15px background;
+    z-index: 1;
+    -ms-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+
+}
         
     
 img{

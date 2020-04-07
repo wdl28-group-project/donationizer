@@ -3,7 +3,7 @@ import Categories from "../components/Categories";
 import { connect } from "react-redux";
 import Footer from "./Footer";
 import { MdSearch } from "react-icons/md";
-import {Link,Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import { getDonations, getDonationsdetail } from "../redux/reducers/donationReducer";
 
 class Home extends React.Component {
@@ -23,7 +23,6 @@ class Home extends React.Component {
           <div
             key={el.donation_title + i}
             className="donation-card"
-            style={{ border: "1px solid black"}}
             onClick={()=>this.props.getDonationsdetail(el.donation_id)}
 
           >
