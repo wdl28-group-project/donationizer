@@ -1,10 +1,7 @@
 @import './components/stylescomponent/home.scss';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
-@import './components//stylescomponent/form';
-
-
-.App{
-    background-image:linear-gradient($white,rgb(139, 171, 187),$white);
-    font-family: 'Roboto', sans-serif;
-
+@import './components/stylescomponent/index.scss';
+.App {
+  background-image: linear-gradient($white, rgb(139, 171, 187), $white);
+  font-family: 'Roboto', sans-serif;
 }

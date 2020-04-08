@@ -5,8 +5,8 @@ import Register from './components/Register';
 import Home from './components/Home';
 import DonationDetails from './components/DonationDetails';
 import Profile from './components/Profile/Profile';
-import Chat from './components/Chat/Chat/Chat';
-import PostDonation from "./components/PostDonation"
+// import Chat from './components/Chat/Chat/Chat';
+import PostDonation from './components/PostDonation';
 
 export default (
   <Switch>
@@ -15,7 +15,7 @@ export default (
     <Route path='/login' component={Login} />
     <Route path='/register' component={Register} />
     <Route path='/profile' component={Profile} />
-    <Route path='/chat' component={Chat} />
+    {/* <Route path='/chat' component={Chat} /> */}
     <Route path='/post' component={PostDonation} />
   </Switch>
 );
