@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {MdAddAPhoto } from "react-icons/md";
 class LoggedOut extends Component{
     render(){
         return(
-            <div>
+            <div  className="header-container">
                 <nav className='loggedOut'>
-                    <ul className='menu'>
-                        <li>
-                            <Link to='/'>Home</Link>
-                        </li>
-                        <li>
+                        <div>
+                            <Link to='/' id="name">GIVE AWAY</Link>
+                        </div>
+                        <div className="loggedOutLinks">
+                            <Link to="/Post"><MdAddAPhoto/> Give</Link>
                             <Link to='/login'>Login</Link>
-                        </li>
-                        <li>
-                            <Link to="/Post">post</Link>
-
-                        </li>
-                    </ul>
+                        </div>
                 </nav>
             </div>
         )

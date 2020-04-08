@@ -7,7 +7,7 @@ const initialState = {
   location: "",
   donation_count: null,
   profile_pic: "",
-  user: {},
+  user:[],
   loading: false
 };
 
@@ -18,6 +18,7 @@ const LOGOUT_USER = "LOGOUT_USER";
 const REGISTER_USER = "REGISTER_USER";
 const EDIT_USER = "EDIT_USER";
 const GET_USER = "GET_USER";
+const EDIT_PASSWORD = "EDIT_PASSWORD"
 
 export const updateState = e => {
   return {
@@ -74,6 +75,13 @@ export const getUser = userObj => {
   };
 };
 
+export const editPassword = userObj => {
+  return {
+    type: EDIT_PASSWORD,
+    payload: axios.put('/auth/editPassword', userObj)
+  };
+}
+
 const authReducer = (state = initialState, action) => {
   let { payload, type } = action;
   switch (type) {
@@ -91,7 +99,7 @@ const authReducer = (state = initialState, action) => {
         location: "",
         donation_count: null,
         profile_pic: "",
-        user: {},
+        user:[],
         loading: false
       };
     case `${LOGIN_USER}_PENDING`:
@@ -115,7 +123,7 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        user: {}
+        user:[]
       };
     case `${REGISTER_USER}_PENDING`:
       return {
@@ -143,13 +151,25 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-      }
+      };
       case `${GET_USER}_FULFILLED`:
         return {
           ...state,
           loading: false,
           user: {...state.user, ...payload.data}
         };
+      case `${EDIT_PASSWORD}_PENDING`:
+      return {
+        ...state,
+        loading: true,
+      };
+      case `${EDIT_PASSWORD}_FULFILLED`:
+        return {
+          ...state,
+          loading: false,
+          user: {...state.user, ...payload.data}
+        };
+      
 
 
     default:

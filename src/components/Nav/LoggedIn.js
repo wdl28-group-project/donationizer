@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { MdMessage,MdAddAPhoto } from 'react-icons/md';
+
 
 class LoggedIn extends Component{
     handleLogOut = () => {
@@ -8,18 +10,18 @@ class LoggedIn extends Component{
     }
     render(){
         return(
-            <div>
+            <div  className="header-container">
                 <nav className='loggedIn'>
-                    <ul className='menu'>
-                        <li>
-                            <Link to='/'>Home</Link>
-                        </li>
-                        <li>
+                       <div>
+                            <Link to='/' id="name">GIVE AWAY</Link>
+                        </div>
+                        <div className="loggedInLinks">
+                           <Link to="/Post"><MdAddAPhoto/> Give</Link>
+                            <Link to='/chat' ><MdMessage size="23px" id="chat"/></Link>
                             <Link to='/profile'>Profile</Link>
-                        </li>
-                    </ul>
+                            <a onClick={this.handleLogOut}>Log out</a>
+                        </div>
                 </nav>
-                <button onClick={this.handleLogOut}>Log Out</button>
             </div>
         )
     }

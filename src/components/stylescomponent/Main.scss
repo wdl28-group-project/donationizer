@@ -1,0 +1,26 @@
+$primary: #1ee3cf;
+$secondary: #005792;
+$white:#ffffff;
+
+
+
+$desktop-width:1050px;
+$tablet-width:850px;
+$phone-width:515px;
+
+@mixin desktop {
+    @media (max-width: #{$desktop-width}) {
+      @content;
+    }
+  }
+  @mixin tablet {
+    @media (max-width: #{$tablet-width}) {
+      @content;
+    }
+  }
+  
+  @mixin phone {
+    @media (max-width: #{$phone-width}) {
+      @content;
+    }
+  }
