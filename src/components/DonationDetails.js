@@ -72,27 +72,28 @@ class DonationDetails extends React.Component {
       return <Redirect to="/" />;
     } else if (this.props.detail.length > 0) {
       return (
-          <div >
+          <div className="donationDetail-parent" >
 
           DonationDetails
           <Carousel responsive={responsive} className="w-event-parent">
                 {mappedPhotos}
             </Carousel>
           <div>
-            <div>
+            <div className="icon-d">
               {this.props.details.view_count}
               <IoMdEye></IoMdEye>
             </div>
+            <div className="icon-d">
             <IoIosHeart></IoIosHeart>
+            </div>
+            <div className="icon-d">
             <IoMdMail></IoMdMail>
-          </div>
-          <h1>{this.props.details.donation_title}</h1>
-          <h2>{this.props.details.category_name}</h2>
-          <h3>{this.props.details.donation_desc}</h3>
-          <p>{this.props.details.post_date}</p>
-          <Link to="/">
-            <button onClick={()=> this.props.getDonationsdetail()}>home</button>
-          </Link>
+            </div>
+          </div >
+          <h1 className="info">{this.props.details.donation_title}</h1>
+          <h2 className="info">{this.props.details.category_name}</h2>
+          <h3 className="info">{this.props.details.donation_desc}</h3>
+          <p className="info">{this.props.details.post_date}</p>
         </div>
       );
     }
