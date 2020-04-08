@@ -17,18 +17,21 @@ constructor(){
         isDonated: false,
         Category:0,
         post_date:"",
-        user_id: 0,
-        location: ""
-
+        post_location: "",
+        donation_photo: ""
 
     }
 }
 
 componentDidMount(){
-    this.props.getUser()
-    this.setState({  user: this.props.user,
-        user_id: this.props.user_id,
-        location: this.props.location})
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date+' '+time;
+    this.setState({  
+        post_date: dateTime,
+        donator_id: this.props.user.user_id,
+        post_location: this.props.user.location})
 }
 
 
@@ -49,7 +52,7 @@ handleInput = e => {
                 <h1>details</h1>
                 <input onChange={this.handleInput} name="donation_desc"></input>
                 <h1>location</h1>
-                <input onChange={this.handleInput} name="post_location"></input>
+                <input onChange={this.handleInput} name="donation_photo"></input>
             <div>
                 <button onClick={()=>this.setState({Category:4})}>Home</button>
                 <button onClick={()=>this.setState({Category:2})}>Clothing</button>
@@ -61,13 +64,13 @@ handleInput = e => {
                 <button onClick={()=>this.setState({Category:8})}>Baby & Child</button>
                 <button onClick={()=>this.setState({Category:9})}>Other</button>
             </div>
-            <button>Donate!</button>
+            <button onClick={()=>this.post()}>Donate!</button>
                 </div>
         )
     }
 }
 const mapStateToProps = state => {
-    let { user, user_id,location } = state.authReducer;
+    let { user, user_id, location } = state.authReducer;
     return{
         user,
         user_id,

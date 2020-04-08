@@ -10,12 +10,15 @@ getDonations:async(req, res)=>{
 },
 
 postDonation: function (req, res){
-    const db = req.app.get('db')        
+    const db = req.app.get('db') 
+
     const {donation_title, donation_desc, post_location,post_date, view_count, isdonated, category, donator_id} = req.body
     db.donations.postDonation(donator_id, donation_title, donation_desc, post_location, view_count, isdonated, category,post_date)
         .then(post =>{
             console.log(post)
-            res.sendStatus(200)
+            const posts=post[0]
+            console.log(posts)
+            res.status(200).send(posts)
         })
         .catch(error => {
             console.log(error)
@@ -54,7 +57,7 @@ updateViewCount: function (req, res) {
    db.donations.updateViewCount(donation_id)
         .then(put =>{
             console.log(put)
-            res.status(200).send(put[0])
+            res.status(200).send(put)
         })
         .catch(error => {
             console.log(error)
@@ -63,8 +66,8 @@ updateViewCount: function (req, res) {
 },
 postDonationPhoto: function (req,res){
     const db = req.app.get('db');
-    const {donation_id} = req.body
-    db.donations.postDonationPhoto()
+    const {donation_id, donation_photo} = req.body
+    db.donations.postDonationPhoto(donation_id, donation_photo)
     .then(result=>{
         console.log(result)
         res.status(200).json("working well")

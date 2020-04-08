@@ -86,7 +86,7 @@ app.get('/api/donations/:id', getDonations);
 app.get('/api/donations/filter', getFilteredDonations);
 
 app.get('/api/donation/:id', getDonationInfo);
-app.post('/api/donation/', postDonation);
+app.post('/api/donation', postDonation);
 app.get('/api/donation/:id/photos', getDonationPhotos);
 app.put('/api/viewCount/:id', updateViewCount);
 app.delete('/api/donation/:id', deleteDonation);
@@ -94,4 +94,4 @@ app.get('/api/donations/favorites/:id', getUserFavorites);
 app.get('/api/donations/users/:id', getUserDonations);
 
 app.post('/api/favourites', postFavourite)
-app.post('/api/postPhotos',postDonationPhoto)
+app.post('/api/postPhoto',postDonationPhoto)
