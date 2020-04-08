@@ -1,0 +1,12 @@
+.react-multi-carousel-list {
+  width: 50vw;
+  height: 60vh;
+  margin: 30px;
+  border-radius: 5px;
+  border: solid 2px #ff3f55;
+}
+
+.react-multi-carousel-list img {
+  height: 500px;
+}
+/*# sourceMappingURL=Slider.css.map */
