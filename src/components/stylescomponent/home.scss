@@ -9,32 +9,37 @@
   margin-top: -20px;
   a {
     color: $white;
+    text-decoration: none;
+    margin: 0 10px;
   }
 }
-.loggedOut{
+.loggedOut,
+.loggedIn {
   padding: 0 10px;
   box-sizing: border-box;
   height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-    div{
-      display: flex;
-      font-size: 18px;
-      margin: 0 10px;
-      border: 1px solid transparent;
-      outline: none;  
-      svg{
-        margin-top: -5px;
-      }   
+  div {
+    display: flex;
+    font-size: 19px;
+    margin: 0 10px;
+    border: 1px solid transparent;
+    outline: none;
+    svg {
+      margin-top: -5px;
     }
-    #name{
-      font-size: 25px;
-    }
-    #login{
-      margin-left: 30px;
-    }
+  }
 }
+#name{
+  font-size: 25px;
+}
+#chat{
+  margin-top: 1px;
+}
+
+
 .search-container {
   height: 8vh;
   position: sticky;
@@ -43,9 +48,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  @include tablet{
+  @include tablet {
     margin-bottom: 20px;
-}
+  }
   .search {
     height: 60%;
     width: 30%;
@@ -55,14 +60,14 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    @include tablet{
-        width: 40%;
+    @include tablet {
+      width: 40%;
     }
-    @include phone{
-        width: 60%;
-    } 
-}
-#input {
+    @include phone {
+      width: 60%;
+    }
+  }
+  #input {
     text-align: center;
     width: 90%;
     line-height: 20px;
@@ -97,11 +102,10 @@
     padding: 10px;
     box-sizing: border-box;
     justify-content: space-between;
-    
   }
   .icon-container {
     display: flex;
-    p{
+    p {
       margin-top: 20px;
     }
     @include tablet() {
@@ -128,7 +132,7 @@
         border-radius: 25px;
       }
       @include phone() {
-        width:46px;
+        width: 46px;
         height: 46px;
         border-radius: 23px;
         margin: 0 10px;
@@ -145,8 +149,8 @@
   }
 }
 .category-container::-webkit-scrollbar {
-    display: none;
-  }
+  display: none;
+}
 .donation-container {
   width: 83vw;
   padding: 50px 10px;
@@ -193,8 +197,8 @@
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
     }
-    p{
-      margin-top: 10px;     
+    p {
+      margin-top: 10px;
     }
   }
 }
@@ -206,4 +210,3 @@
   text-align: center;
   color: $white;
 }
-
