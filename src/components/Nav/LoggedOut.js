@@ -9,9 +9,9 @@ class LoggedOut extends Component{
                         <div>
                             <Link to='/' id="name">GIVE AWAY</Link>
                         </div>
-                        <div>
-                            <Link to="/Post" id="share">Give <MdAddAPhoto/></Link>
-                            <Link to='/login' id="login">Login</Link>
+                        <div className="loggedOutLinks">
+                            <Link to="/Post"><MdAddAPhoto/> Give</Link>
+                            <Link to='/login'>Login</Link>
                         </div>
                 </nav>
             </div>
