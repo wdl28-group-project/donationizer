@@ -21,8 +21,8 @@ class Edit extends React.Component {
     };
   }
   componentDidMount(){
-    let { profile_pic } = this.props.user;
-    this.setState({ profile_pic })
+    let { profile_pic, username, location } = this.props.user;
+    this.setState({ profile_pic, username, location })
   }
   //make state here to hold the inputs
   handleInput = (e) => {
@@ -30,16 +30,15 @@ class Edit extends React.Component {
   };
 
   handleSaveUser = () => {
-      const { username, location, url, profile_pic } = this.state
-      if (username && location && url) {
+      const { username, location, profile_pic } = this.state
+      if (username && location && profile_pic) {
         axios.put('/auth/editUser', {
             username,
             location,
-            url,
             profile_pic
         })
         .then(() => {
-            alert("successfully changed username")
+            alert("successfully updated user")
         })
         .catch(() => {
             alert("try again")
@@ -133,13 +132,6 @@ class Edit extends React.Component {
               onChange={this.handleInput}
               name="location"
               placeholder="new location"
-            />
-            <div className="userName-text">URL</div>
-            <input
-              className="input-username"
-              onChange={this.handleInput}
-              name="url"
-              placeholder="paste image URL"
             />
             <div className="button-wrapper">
               <button className="save-changes" onClick={this.handleSaveUser}>

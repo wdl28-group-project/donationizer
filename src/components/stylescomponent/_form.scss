@@ -1,0 +1,30 @@
+.form{
+    &.login{
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 50%;
+        min-width: 350px;
+        background-color: $secondary;
+        padding: 75px;
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+
+        input, button{
+            display: block;
+            margin: 15px auto;
+        }
+        input{
+            border: unset;
+            padding: 6px;
+        }
+        button{
+            background-color: transparent;
+            border: 2px solid $white;
+            color: $white;
+        }
+    
+    }
+}
