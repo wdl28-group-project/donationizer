@@ -8,8 +8,8 @@ import {
   PRIVATE_MESSAGE,
 } from '../../../Events';
 import ChatHeading from './ChatHeading';
-import Messages from '../messages/Messages';
-import MessageInput from '../messages/MessageInput';
+import Messages from '../Messages/Messages';
+import MessageInput from '../Messages/MessageInput';
 
 export default class ChatContainer extends Component {
   constructor(props) {
