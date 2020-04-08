@@ -6,6 +6,20 @@ class LoggedOut extends Component{
         return(
             <div  className="header-container">
                 <nav className='loggedOut'>
+<<<<<<< HEAD
+                    <ul className='menu'>
+                        <li>
+                            <Link to='/'>Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/Post">post</Link>
+
+                        </li>
+                        <li>
+                            <Link to='/login'>Login</Link>
+                        </li>
+                    </ul>
+=======
                         <div>
                             <Link to='/' id="name">GIVE AWAY</Link>
                         </div>
@@ -13,6 +27,7 @@ class LoggedOut extends Component{
                             <Link to="/Post"><MdAddAPhoto/> Give</Link>
                             <Link to='/login'>Login</Link>
                         </div>
+>>>>>>> master
                 </nav>
             </div>
         )
