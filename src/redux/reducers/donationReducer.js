@@ -5,6 +5,7 @@ const initialState = {
   details:[],
   favorites: [],
   myDonations: []
+
 };
 
 //constants
@@ -48,16 +49,13 @@ export function updateViewCount(id) {
 };
 export function postDonation(obj){
         const donation_photo= obj.donation_photo
-  let data =    axios.post( '/api/donation', obj).then(data =>{ 
-          console.log(data)
-          console.log(donation_photo)
+  let data =    axios.post( '/api/donation', obj)
+  .then(data =>{ 
           const{donation_id}= data.data
-          console.log(donation_id)
           const obj2={ donation_id, donation_photo}
           axios.post('/api/postPhoto', obj2)
+          .then(res=>console.log(res)) })
           .then(res=>console.log(res))
-  
-  }).then(res=>console.log(res))
     .catch(res=>console.log(res))
   return {
     type: UPDATE_VIEW_COUNT,
