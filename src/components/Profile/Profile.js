@@ -12,8 +12,18 @@ import Favorites from './Tabs/Favorites';
 class Profile extends React.Component {
 
   render() {
+    let {username,profile_pic,location,donation_count} = this.props.user;
+    console.log(this.props.user)
     if(!this.props.user.user_id) return <Redirect to='/' />
     return (
+      <div>
+        <div className="user-info">
+          <p>{username}</p>
+          <p>{location}</p>
+          <img src={profile_pic} width="200px"/>
+          <p>{donation_count}</p>
+        </div>
+        
       <div className="profile">
         <Tabs defaultActiveKey='edit' id='profile-tabs'>
           <Tab eventKey='edit' title='Edit Profile'>
@@ -26,6 +36,7 @@ class Profile extends React.Component {
             <MyDonations />
           </Tab>
         </Tabs>
+      </div>
       </div>
     );
   }
