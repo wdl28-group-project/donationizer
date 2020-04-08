@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { editUser } from "../../../redux/reducers/authReducer";
 import axios from 'axios';
 import "../../stylescomponent/Profile.scss";
+require('dotenv').config();
 
 class Edit extends React.Component {
   constructor() {
@@ -16,7 +17,12 @@ class Edit extends React.Component {
       currentPassword: "",
       newPassword: "",
       confirmPassword: "",
+      profile_pic: ''
     };
+  }
+  componentDidMount(){
+    let { profile_pic } = this.props.user;
+    this.setState({ profile_pic })
   }
   //make state here to hold the inputs
   handleInput = (e) => {
@@ -24,12 +30,13 @@ class Edit extends React.Component {
   };
 
   handleSaveUser = () => {
-      const { username, location, url  } = this.state
+      const { username, location, url, profile_pic } = this.state
       if (username && location && url) {
         axios.put('/auth/editUser', {
             username,
             location,
             url,
+            profile_pic
         })
         .then(() => {
             alert("successfully changed username")
@@ -77,12 +84,40 @@ class Edit extends React.Component {
       alert("not equal password");
     }
   };
+  checkUploadResult = (error, result) => {
+      let { event, info } = result;
+      if(event === 'success'){
+          this.setState({ profile_pic: info.url });
+      }
+  }
 
   render() {
-      console.log(this.props.user)
+    const { REACT_APP_CLOUDNAME, REACT_APP_CLOUDINARY_UNSIGNED } = process.env;
+    var widget;
+    if( window.cloudinary ) {
+        widget = window.cloudinary.createUploadWidget(
+            {
+                cloudName: `${REACT_APP_CLOUDNAME}`,
+                uploadPreset: `${REACT_APP_CLOUDINARY_UNSIGNED}`,
+                sources: ['local', 'url', 'facebook', 'instagram'],
+                Default: false
+            },
+            ( error, result ) => {
+                this.checkUploadResult(error, result);
+            }
+        );
+    }
+    let { profile_pic } = this.state;
     return (
       <div className="profile">
-        <div className="profile-header">Tap on photo to change it</div>
+        <div className="profile-header">
+          <img
+            className='pointer' 
+            src={ profile_pic ? profile_pic : 'https://res.cloudinary.com/dsbuphoeh/image/upload/v1586359587/Donationizer/01_w5jmbt.png' } alt='profile'
+            onClick={ () => widget.open() }
+          />
+          Tap on photo to change it
+        </div>
         <div className="profile-content">
           <div className="userName">
             <div className="userName-text">New Username</div>
@@ -154,11 +189,11 @@ class Edit extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  let { user, username, password, loading } = state.authReducer;
-  console.log(state);
+  let { user, username, password, loading, profile_pic } = state.authReducer;
   return {
     user,
     username,
+    profile_pic,
     password,
     loading,
   };

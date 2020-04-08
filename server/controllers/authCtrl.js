@@ -67,7 +67,7 @@ const editUser = async (req, res) => {
 
   let { user_id } = req.session.user;
 
-  let { username, url: profile_pic, location } = req.body;
+  let { username, profile_pic, location } = req.body;
 
   var user = await db.auth.editUser(username, profile_pic, location, user_id);
 

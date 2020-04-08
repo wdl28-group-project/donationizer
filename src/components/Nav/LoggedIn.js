@@ -12,11 +12,11 @@ class LoggedIn extends Component{
         return(
             <div  className="header-container">
                 <nav className='loggedIn'>
-                       <div>
+                        <div>
                             <Link to='/' id="name">GIVE AWAY</Link>
                         </div>
                         <div>
-                           <Link to="/Post" id="share"><button>Give <MdAddAPhoto/></button></Link>
+                            <Link to="/Post" id="share"><button>Give <MdAddAPhoto/></button></Link>
                             <Link to='/profile'><MdMessage/></Link>
                             <Link to='/profile'>Profile</Link>
                         </div>
