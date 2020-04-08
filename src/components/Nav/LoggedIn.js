@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { MdMessage,MdAddAPhoto } from 'react-icons/md';
+
 
 class LoggedIn extends Component{
     handleLogOut = () => {
@@ -10,14 +12,14 @@ class LoggedIn extends Component{
         return(
             <div  className="header-container">
                 <nav className='loggedIn'>
-                    <ul className='menu'>
-                        <li>
-                            <Link to='/'>Home</Link>
-                        </li>
-                        <li>
+                       <div>
+                            <Link to='/' id="name">GIVE AWAY</Link>
+                        </div>
+                        <div>
+                           <Link to="/Post" id="share"><button>Give <MdAddAPhoto/></button></Link>
+                            <Link to='/profile'><MdMessage/></Link>
                             <Link to='/profile'>Profile</Link>
-                        </li>
-                    </ul>
+                        </div>
                 </nav>
                 <button onClick={this.handleLogOut}>Log Out</button>
             </div>

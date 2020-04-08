@@ -5,7 +5,8 @@ import Footer from "./Footer";
 import { MdSearch } from "react-icons/md";
 import {Link,Redirect} from 'react-router-dom';
 import { getDonations, getDonationsdetail } from "../redux/reducers/donationReducer";
-import './stylescomponent/home.scss';
+import loading_gif from '../asset/ajax-loader.gif';
+
 
 class Home extends React.Component {
   state = { search: "", user_id:0};
@@ -27,7 +28,6 @@ class Home extends React.Component {
           <div
             key={el.donation_title + i}
             className="donation-card"
-            style={{ border: "1px solid black"}}
             onClick={()=>this.props.getDonationsdetail(el.donation_id)}
 
           >
@@ -63,7 +63,7 @@ class Home extends React.Component {
             <div className="search">
               <MdSearch size="25px"/>
               <input
-                placeholder="search donations"
+                placeholder="Search GiveAway"
                 id="input"
                 name="search"
                 onChange={this.handleChange}
@@ -72,10 +72,15 @@ class Home extends React.Component {
           </div>
           <div className="donation-category-container">
         <Categories />
+        
         <div className="donation-container">
+        {this.props.loading? (
+          <img src={loading_gif} style={{marginTop:"150px",width:"200px"}}/>
+        ):(
           <div className="donation-card-container">
             {!search ? mappedDonation : filteredDonation && filteredDonation.length === 0 ? mappedDonation:filteredDonation}
           </div>
+        )}
         </div>
         </div>
         <Footer />
@@ -87,7 +92,8 @@ const mapStateToProps = reduxState => {
   return {
     donations: reduxState.donation.donations,
     details: reduxState.donation.details,
-    user: reduxState.authReducer.user
+    user: reduxState.authReducer.user,
+    loading: reduxState.donation.loading
   };
 };
 export default connect(mapStateToProps, { getDonations,getDonationsdetail })(Home);
