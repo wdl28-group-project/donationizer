@@ -15,13 +15,13 @@ class LoggedIn extends Component{
                         <div>
                             <Link to='/' id="name">GIVE AWAY</Link>
                         </div>
-                        <div>
-                            <Link to="/Post" id="share"><button>Give <MdAddAPhoto/></button></Link>
-                            <Link to='/profile'><MdMessage/></Link>
+                        <div className="loggedInLinks">
+                            <Link to="/Post"><MdAddAPhoto/> Give</Link>
+                            <Link to='/chat' ><MdMessage size="23px" id="chat"/></Link>
                             <Link to='/profile'>Profile</Link>
+                            <a onClick={this.handleLogOut}>Log out</a>
                         </div>
                 </nav>
-                <button onClick={this.handleLogOut}>Log Out</button>
             </div>
         )
     }
