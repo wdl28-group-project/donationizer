@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // $hoverBgColor : #503bff;
 // $hoverBgColor2: #8293ff;
 
@@ -48,6 +49,58 @@
 //     .effect-2{
 //         border: 1px solid #503bff;
 //         border-radius: 10px;
+=======
+$hoverBgColor : #503bff;
+$hoverBgColor2: #8293ff;
+
+.post-parent{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    height: 70vh;
+    width: 40vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 10px;
+    background-image: linear-gradient(90deg, rgba(145,32,32,1) 0%, rgba(255,63,85,1) 52%, rgba(255,191,101,1) 100%);
+    font-size: larger;
+    color: white;
+
+    input{
+        width: 20vw;
+        margin-bottom: 20px;
+        align-self: center;
+        border: none;
+        border-bottom: solid 1px #503bff;
+        border-radius: 6px;
+    }
+    h1{
+        font-weight: lighter;
+    }
+}
+.post-parent:hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+}
+
+
+.content{
+    border-radius: 10px;
+
+
+}
+.button-parent {
+    justify-content: center;
+    width: 100%;
+    margin: 5px;
+    height: 70px;
+    border-radius: 10px;
+
+    .effect-2{
+        border: 1px solid #503bff;
+        border-radius: 10px;
+>>>>>>> parent of dcb27c4... save 4.8.2020
         
 
 //     }
