@@ -15,7 +15,7 @@ postDonation: function (req, res){
     db.donations.postDonation(donator_id, donation_title, donation_desc, post_location, view_count, isdonated, category,post_date)
         .then(post =>{
             console.log(post)
-            res.status(200).send(post)
+            res.sendStatus(200)
         })
         .catch(error => {
             console.log(error)
@@ -63,8 +63,8 @@ updateViewCount: function (req, res) {
 },
 postDonationPhoto: function (req,res){
     const db = req.app.get('db');
-    const {donation_id, donation_photo} = req.body
-    db.donations.postDonationPhoto(donation_id,donation_photo)
+    const {donation_id} = req.body
+    db.donations.postDonationPhoto()
     .then(result=>{
         console.log(result)
         res.status(200).json("working well")
