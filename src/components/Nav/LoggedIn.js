@@ -9,16 +9,24 @@ class LoggedIn extends Component{
         logoutUser();
     }
     render(){
+        let { profile_pic } = this.props.user;
+        console.log(profile_pic);
         return(
             <div  className="header-container">
                 <nav className='loggedIn'>
-                       <div>
+                        <div>
                             <Link to='/' id="name">GIVE AWAY</Link>
                         </div>
                         <div className="loggedInLinks">
-                           <Link to="/Post"><MdAddAPhoto/> Give</Link>
+                            <Link to="/Post"><MdAddAPhoto/> Give</Link>
                             <Link to='/chat' ><MdMessage size="23px" id="chat"/></Link>
-                            <Link to='/profile'>Profile</Link>
+                            <Link to='/profile'>
+                                <div
+                                    className='profile-pic pointer'
+                                    style={{ backgroundImage: `url(${ profile_pic ? profile_pic : 'https://www.fillmurray.com/400/300' })` }}
+                                >
+                                </div>
+                            </Link>
                             <a onClick={this.handleLogOut}>Log out</a>
                         </div>
                 </nav>

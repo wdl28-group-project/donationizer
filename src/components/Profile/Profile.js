@@ -23,7 +23,7 @@ class Profile extends React.Component {
             <Favorites />
           </Tab>
           <Tab eventKey='user-donations' title='My Donations'>
-            <MyDonations user={this.props.user} />
+            <MyDonations />
           </Tab>
         </Tabs>
       </div>
