@@ -11,6 +11,30 @@
     color: $white;
   }
 }
+.loggedOut{
+  padding: 0 10px;
+  box-sizing: border-box;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    div{
+      display: flex;
+      font-size: 18px;
+      margin: 0 10px;
+      border: 1px solid transparent;
+      outline: none;  
+      svg{
+        margin-top: -5px;
+      }   
+    }
+    #name{
+      font-size: 25px;
+    }
+    #login{
+      margin-left: 30px;
+    }
+}
 .search-container {
   height: 8vh;
   position: sticky;
@@ -176,8 +200,10 @@
 }
 
 .footer-container {
-  height: 50px;
+  width: 100%;
   background-color: $secondary;
   margin-top: 300px;
+  text-align: center;
+  color: $white;
 }
 

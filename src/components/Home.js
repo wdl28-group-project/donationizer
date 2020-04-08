@@ -63,7 +63,7 @@ class Home extends React.Component {
             <div className="search">
               <MdSearch size="25px"/>
               <input
-                placeholder="search donations"
+                placeholder="Search GiveAway"
                 id="input"
                 name="search"
                 onChange={this.handleChange}
