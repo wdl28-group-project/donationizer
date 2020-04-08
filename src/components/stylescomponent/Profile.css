@@ -1,0 +1,108 @@
+.profile .profile-header {
+  text-align: center;
+  margin: 50px;
+}
+
+.profile .profile-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile .passWord {
+  -webkit-box-shadow: 2px 2px 2px 2px grey;
+          box-shadow: 2px 2px 2px 2px grey;
+  padding: 30px;
+}
+
+.profile .passWord .userName-text {
+  font-size: 20px;
+  margin: 10px 0 10px 0;
+}
+
+.profile .passWord .change-password {
+  font-size: 24px;
+  color: #e8833a;
+  font-weight: bold;
+  margin: 30px 0 30px 0;
+}
+
+.profile .passWord .input-username {
+  width: 200px;
+  border-color: #c3cfd9;
+  border-style: solid;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.profile .passWord .save-changes {
+  background-color: #6558f5;
+  padding: 8px;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  margin-top: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile .passWord .button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile .userName {
+  margin-right: 60px;
+}
+
+.profile .userName .input-username {
+  width: 200px;
+  border-color: #c3cfd9;
+  border-style: solid;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.profile .userName .userName-text {
+  font-size: 20px;
+  margin: 10px 0 10px 0;
+}
+
+.profile .userName .save-changes {
+  background-color: #6558f5;
+  padding: 8px;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  margin-top: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile .userName .button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=Profile.css.map */
