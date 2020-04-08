@@ -2,7 +2,7 @@ import React from 'react';
 import routes from '../src/routes';
 import {HashRouter} from 'react-router-dom';
 import Nav from './components/Nav/Nav';
-import './App.scss';
+import './App.css';
 
 function App() {
   return (

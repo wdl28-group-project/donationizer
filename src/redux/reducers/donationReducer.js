@@ -2,9 +2,13 @@ import axios from "axios";
 const initialState = {
   donations: [],
   loading: false,
+<<<<<<< HEAD
   details:[],
   favorites: [],
   myDonations: []
+=======
+  details:[]
+>>>>>>> parent of 69ba4e6... styling
 };
 
 //constants
@@ -12,6 +16,7 @@ const GET_DONATIONS = "GET_DONATIONS";
 const GET_DONATIONS_BY_CATEGORY = 'GET_DONATIONS_BY_CATEGORY';
 const GET_DONATION_DETAIL= 'GET_DONATION_DETAIL'
 const UPDATE_VIEW_COUNT='UPDATE_VIEW_COUNT'
+<<<<<<< HEAD
 const POST_DONATION='POST_DONATION';
 const GET_FAVORITE_DONATIONS = "GET_FAVORITE_DONATIONS";
 const GET_USER_DONATIONS = 'GET_USER_DONATIONS';
@@ -19,6 +24,14 @@ const GET_USER_DONATIONS = 'GET_USER_DONATIONS';
 //action creator
 export function getDonations(id) {
   let data = axios.get(`/api/donations/${id}`); 
+=======
+const POST_DONATION='POST_DONATION'
+
+//action creator
+export function getDonations() {
+  let data = axios.get("/api/donations");
+  
+>>>>>>> parent of 69ba4e6... styling
   return {
     type: GET_DONATIONS,
     payload: data
@@ -53,6 +66,7 @@ export function postDonation(obj){
     payload: data
   };
 }
+<<<<<<< HEAD
 
 export const getFavorites = (user_id) => {
   return{
@@ -71,6 +85,10 @@ export const getUserDonations = (user_id) => {
 //reducer
 export default function donationReducer(state = initialState,action) {
   // console.log(state.details)
+=======
+//reducer
+export default function donationReducer(state = initialState,action) {
+>>>>>>> parent of 69ba4e6... styling
   const { type, payload } = action;
   switch (type) {
     case `${GET_DONATIONS}_PENDING`:
@@ -110,6 +128,7 @@ export default function donationReducer(state = initialState,action) {
     case  `${ UPDATE_VIEW_COUNT}_PENDING`:
       return{
         ...state,
+<<<<<<< HEAD
         loading: true,
     //   };
     // case `${UPDATE_VIEW_COUNT}_FULFILLED`:
@@ -171,6 +190,28 @@ export default function donationReducer(state = initialState,action) {
           loading:false,
           myDonations: payload.data
         };
+=======
+        loading: true
+      }
+      case `${UPDATE_VIEW_COUNT}_FULFILLED`:
+        return{
+          ...state,
+          loading:false,
+          details: payload.data
+        }
+        case  `${ POST_DONATION}_PENDING`:
+          return{
+            ...state,
+            loading: true
+          }
+          case `${POST_DONATION}_FULFILLED`:
+            return{
+              ...state,
+              loading:false,
+              payload: payload.data
+            }
+      
+>>>>>>> parent of 69ba4e6... styling
     default:
       return state;
   }
