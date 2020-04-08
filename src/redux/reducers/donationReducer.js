@@ -129,6 +129,7 @@ export default function donationReducer(state = initialState,action) {
     //     loading: false,
     //   };
 
+   
         loading: true
       }
     case `${UPDATE_VIEW_COUNT}_FULFILLED`:
