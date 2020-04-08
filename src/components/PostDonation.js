@@ -78,7 +78,8 @@ const mapStateToProps = state => {
 export default connect(
         mapStateToProps,
         {
-            
+            getUser,
+            postDonation
         }
     )
 
