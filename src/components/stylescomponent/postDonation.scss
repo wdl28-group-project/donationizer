@@ -1,0 +1,104 @@
+$hoverBgColor : #503bff;
+$hoverBgColor2: #8293ff;
+@import url('https://fonts.googleapis.com/css2?family=Trochut:ital@1&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Trochut:ital,wght@0,700;1,400&display=swap');
+
+
+.post-parent{
+    margin-top: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    height:83vh;
+    width: 35vw;
+    margin-left: 30vw;
+    margin-right: 30vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 10px;
+    background: linear-gradient(to top, rgba(159,236,237,1) 0%, rgba(1,205,207,1) 20%, rgba(0,87,146,1) 78%);
+    font-size: larger;
+    color: white;
+    font-family: 'Trochut';
+    font-weight: lighter;
+    font-stretch: ultra-expanded;
+    @include tablet() {
+      width: 60%;
+      margin:30px auto;
+    }
+  
+  
+   
+
+    input{
+        width: 20vw;
+        margin-bottom: 20px;
+        align-self: center;
+        border: none;
+        border-bottom: solid 1px #503bff;
+        border-radius: 6px;
+        @include tablet() {
+          width: 70%;
+
+        }
+    }
+    h1{
+        font-weight: lighter;
+        @include desktop() {
+          font-size:19px;
+        }
+    }
+}
+.post-parent:hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+}
+
+.button-parent {
+    justify-content: center;
+    width: 100%;
+    margin: 5px;
+    height: 70px;
+    border-radius: 10px;
+    @include tablet() {
+      width: 70%;
+      margin: 0 auto;
+    }
+    // @include phone() {
+    //   width: 90%;
+    //   // margin: 0 auto;
+    // }
+
+  
+  }
+  .button-parent div:hover{
+    z-index: 1;
+    transform: scaleZ(2) scaleY(1.5) scaleX(1);
+    transition: all .05s ease;
+    color:white;
+    box-shadow: 0 4px 8px 0 rgba(170, 109, 250, 0.2);
+    font-weight: bolder;
+    border-top: solid #503bff;
+    border-bottom: solid #503bff;
+    border-radius: 10px;
+    
+  }
+  .ham{
+    border-top: solid #c41818;
+    border-bottom: solid #c41818;
+    background-color: #ea7070;
+    border-radius: 20px;
+  }
+
+  .button-parent:hover {
+    perspective: 1000px;
+    transition: all .3s ease-in;
+    transform: perspective(10000px) rotateX(0deg);
+    .text {
+      opacity: 1;
+    }
+    & > div {
+      opacity: 1;
+      transition-delay: 0s;
+    }
+}
+

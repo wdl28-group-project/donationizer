@@ -15,7 +15,7 @@ class LoggedIn extends Component{
             <div  className="header-container">
                 <nav className='loggedIn'>
                         <div>
-                            <Link to='/' id="name">GIVE AWAY</Link>
+                            <Link to='/' id="name">GIFT AWAY</Link>
                         </div>
                         <div className="loggedInLinks">
                             <Link to="/Post"><MdAddAPhoto/> Give</Link>
