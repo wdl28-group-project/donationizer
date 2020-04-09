@@ -53,7 +53,7 @@ updateViewCount: function (req, res) {
     
    db.donations.updateViewCount(donation_id)
         .then(put =>{
-            console.log(put)
+            console.log('find me here', put)
             res.status(200).send(put[0])
         })
         .catch(error => {

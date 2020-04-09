@@ -46,8 +46,9 @@ export function updateViewCount(id) {
     payload: data
   };
 };
-export function postDonation(obj){
-  let data =    axios.put( '/api/donation/', obj).then(res => console.log(res))
+export const postDonation = async obj => {
+  let data = await axios.put( '/api/donation/', obj ).then( res => console.log(res) );
+
   return {
     type: UPDATE_VIEW_COUNT,
     payload: data
