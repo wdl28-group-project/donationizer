@@ -27,7 +27,7 @@ function Login(props){
 
     return(
         <div>
-            <div className='form login'>
+            <div style={{marginTop: "30px"}} className='form login'>
                 <input
                     type='text'
                     name='username'
