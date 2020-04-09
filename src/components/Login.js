@@ -42,8 +42,8 @@ function Login(props){
                     onKeyPress={e => handleKeyPress(e)}
                 />
                 <button onClick={handleLogin}>Login</button>
+            <h4>Don't have an account? <Link to='/register'>Register Here</Link></h4>
             </div>
-            <span>Don't have an account? <Link to='/register'>Register Here</Link></span>
         </div>
     )
 }

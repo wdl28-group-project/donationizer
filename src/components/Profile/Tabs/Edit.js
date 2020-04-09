@@ -97,6 +97,8 @@ class Edit extends React.Component {
         <div className="profile-header">
           <img
             className='pointer' 
+            style={{width:"300px"}}
+            
             src={ profile_pic ? profile_pic : 'https://res.cloudinary.com/dsbuphoeh/image/upload/v1586359587/Donationizer/01_w5jmbt.png' } alt='profile'
           />
           <Upload uploadDestination={ REACT_APP_CLOUDINARY_PROFILE } handleCloudinary={ this.handleCloudinary } />

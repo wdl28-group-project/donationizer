@@ -34,6 +34,7 @@ class Home extends React.Component {
     let mappedDonation = this.props.donations.map((el, i) => {
       return (
         <div
+          data-test-id="donations"
           key={el.donation_title + i}
           className='donation-card'
           onClick={() => this.props.getDonationsdetail(el.donation_id)}
@@ -70,7 +71,8 @@ class Home extends React.Component {
           <div className='search'>
             <MdSearch size='25px' />
             <input
-              placeholder='Search GiveAway'
+              placeholder='Search GiftAway'
+              type="text"
               id='input'
               name='search'
               onChange={this.handleChange}
