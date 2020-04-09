@@ -10,12 +10,15 @@ getDonations:async(req, res)=>{
 },
 
 postDonation: function (req, res){
-    const db = req.app.get('db')        
+    const db = req.app.get('db') 
+
     const {donation_title, donation_desc, post_location,post_date, view_count, isdonated, category, donator_id} = req.body
     db.donations.postDonation(donator_id, donation_title, donation_desc, post_location, view_count, isdonated, category,post_date)
         .then(post =>{
             console.log(post)
-            res.sendStatus(200)
+            const posts=post[0]
+            console.log(posts)
+            res.status(200).send(posts)
         })
         .catch(error => {
             console.log(error)
@@ -53,13 +56,28 @@ updateViewCount: function (req, res) {
     
    db.donations.updateViewCount(donation_id)
         .then(put =>{
-            console.log(put)
-            res.status(200).send(put[0])
+            console.log(put, "hit")
+            res.status(200).send(put)
         })
         .catch(error => {
             console.log(error)
             res.status(500).json("something is wrong")
         })
+},
+postDonationPhoto: function (req,res){
+    // console.log("hits")
+    const db = req.app.get('db');
+    const {donation_id, donation_photo} = req.body
+    db.donations.postDonationPhoto(donation_id, donation_photo)
+    .then(result=>{
+        console.log(result, 'hit')
+        res.status(200).json(result[0])
+    })
+    .catch(result=>{
+        console.log(result)
+        res.status(500).json("massive error")
+    })
+
 },
     getDonationByCategory:async (req,res)=>{
         const db = req.app.get('db');

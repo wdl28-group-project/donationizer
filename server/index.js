@@ -60,6 +60,7 @@ const {
   updateViewCount,
   postFavourite,
   getUserFavorites,
+  postDonationPhoto,
   getUserDonations,
 } = donationCtrl;
 
@@ -75,4 +76,5 @@ app.delete('/api/donation/:id', deleteDonation);
 app.get('/api/donations/favorites/:id', getUserFavorites);
 app.get('/api/donations/users/:id', getUserDonations);
 
+app.post('/api/postPhoto',postDonationPhoto)
 app.post('/api/favourites', postFavourite);
