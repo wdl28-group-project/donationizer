@@ -36,7 +36,7 @@ class MyDonations extends Component{
                     <IoMdEye></IoMdEye>
                     {donation.view_count}
                     </p>
-                    <button className="donation-button" onClick={()=>this.deleteDonation(donation.donation_id)}>Delete</button>
+                    <button data-testid="button" className="donation-button" onClick={()=>this.deleteDonation(donation.donation_id)}>Delete</button>
                 </div>
             );
         } )
