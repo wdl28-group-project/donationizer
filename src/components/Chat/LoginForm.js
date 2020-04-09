@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { VERIFY_USER } from '../../Events';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-export default class LoginForm extends Component {
+class LoginForm extends Component {
   constructor(props) {
     super(props);
 
@@ -36,6 +38,7 @@ export default class LoginForm extends Component {
   };
 
   render() {
+    // console.log(this.props.user);
     const { nickname, error } = this.state;
     return (
       <div className='login'>
@@ -59,3 +62,10 @@ export default class LoginForm extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  const { user } = state.authReducer;
+
+  return { user };
+};
+export default withRouter(connect(mapStateToProps, {})(LoginForm));

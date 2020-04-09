@@ -39,16 +39,13 @@ module.exports = function (socket) {
   });
 
   //User Connects with username
-  socket.on(USER_CONNECTED, (user) => {
+  io.on('connection', (user) => {
     user.socketId = socket.id;
     connectedUsers = addUser(connectedUsers, user);
     socket.user = user;
 
     sendMessageToChatFromUser = sendMessageToChat(user.name);
     sendTypingFromUser = sendTypingToChat(user.name);
-
-    io.emit(USER_CONNECTED, connectedUsers);
-    console.log(connectedUsers);
   });
 
   //User disconnects
