@@ -9,7 +9,6 @@ const authCtrl = require('./controllers/authCtrl');
 const donationCtrl = require('./controllers/donationCtrl');
 
 //SOCKET.IO
-// var app = require('http').createServer();
 var io = (module.exports.io = require('socket.io')(
   app.listen(SERVER_PORT, () => console.log('Party on, Wayne! CHAT is ON!!!'))
 ));

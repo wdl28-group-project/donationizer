@@ -11,6 +11,9 @@ import ChatHeading from './ChatHeading';
 import Messages from '../messages/Messages';
 import MessageInput from '../messages/MessageInput';
 
+import io from 'socket.io-client';
+const socket = io.connect();
+
 export default class ChatContainer extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +25,7 @@ export default class ChatContainer extends Component {
   }
 
   componentDidMount() {
-    const { socket } = this.props;
+    // const { socket } = this.props;
     this.initSocket(socket);
   }
 
@@ -57,7 +60,7 @@ export default class ChatContainer extends Component {
    *	@param reset {boolean} if true will set the chat as the only chat.
    */
   addChat = (chat, reset = false) => {
-    const { socket } = this.props;
+    // const { socket } = this.props;
     const { chats } = this.state;
 
     const newChats = reset ? [chat] : [...chats, chat];
@@ -121,7 +124,7 @@ export default class ChatContainer extends Component {
    *	@param message {string} The message to be added to the chat.
    */
   sendMessage = (chatId, message) => {
-    const { socket } = this.props;
+    // const { socket } = this.props;
     socket.emit(MESSAGE_SENT, { chatId, message });
   };
 
@@ -131,7 +134,8 @@ export default class ChatContainer extends Component {
    *	typing {boolean} If the user is typing still or not.
    */
   sendTyping = (chatId, isTyping) => {
-    const { socket } = this.props;
+    // console.log(chatId, isTyping);
+    // const { socket } = this.props;
     socket.emit(TYPING, { chatId, isTyping });
   };
 
