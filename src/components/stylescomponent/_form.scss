@@ -8,7 +8,8 @@
         margin: 0 auto;
         width: 50%;
         min-width: 350px;
-        background-color: $secondary;
+        background-color: $secondary;  
+        background-image: linear-gradient(to top, rgba(159,236,237,1) 0%, rgba(1,205,207,1) 20%, rgba(0,87,146,1) 78%);
         padding: 75px;
         box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
 
