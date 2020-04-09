@@ -56,7 +56,7 @@ handleInput = e => {
                 <div className={`${this.state.category=== 4?"ham":"dud" }`} onClick={()=>this.setState({category:4})}>Home</div>
                 <div className={`${this.state.category=== 2?"ham":"dud" }`} onClick={()=>this.setState({category:2})}>Clothing</div>
                 <div className={`${this.state.category=== 3?"ham":"dud" }`} onClick={()=>this.setState({category:3})}>Electronics</div>
-                <div className={`${this.state.category=== 1?"ham":"dud" }`} onClick={()=>this.setState({category:1})}>Furniture</div>
+                <div data-testid="ham" className={`${this.state.category=== 1?"ham":"dud" }`} onClick={()=>this.setState({category:1})}>Furniture</div>
                 <div className={`${this.state.category=== 5?"ham":"dud" }`} onClick={()=>this.setState({category:5})}>Education</div>
                 <div className={`${this.state.category=== 6?"ham":"dud" }`} onClick={()=>this.setState({category:6})}>Sports & Games</div>
                 <div className={`${this.state.category=== 7?"ham":"dud" }`} onClick={()=>this.setState({category:7})}>Movies & Music</div>
