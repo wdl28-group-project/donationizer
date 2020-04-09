@@ -56,7 +56,7 @@ updateViewCount: function (req, res) {
     
    db.donations.updateViewCount(donation_id)
         .then(put =>{
-            console.log(put)
+            console.log(put, "hit")
             res.status(200).send(put)
         })
         .catch(error => {
@@ -65,12 +65,13 @@ updateViewCount: function (req, res) {
         })
 },
 postDonationPhoto: function (req,res){
+    // console.log("hits")
     const db = req.app.get('db');
     const {donation_id, donation_photo} = req.body
     db.donations.postDonationPhoto(donation_id, donation_photo)
     .then(result=>{
-        console.log(result)
-        res.status(200).json("working well")
+        console.log(result, 'hit')
+        res.status(200).json(result[0])
     })
     .catch(result=>{
         console.log(result)

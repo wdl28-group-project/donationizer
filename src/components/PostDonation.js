@@ -14,10 +14,9 @@ constructor(){
         donation_desc: "",
         post_location: "",
         view_count:0,
-        isDonated: false,
-        Category:0,
+        isdonated: false,
+        category:0,
         post_date:"",
-        post_location: "",
         donation_photo: ""
 
     }
@@ -46,25 +45,25 @@ handleInput = e => {
 
     render() {
         return (
-            <div>
-                <h1>title</h1>
+            <div className="post-parent">
+                <h1>Donation Title</h1>
                 <input onChange={this.handleInput} name="donation_title"></input>
-                <h1>details</h1>
+                <h1>Product Description</h1>
                 <input onChange={this.handleInput} name="donation_desc"></input>
-                <h1>location</h1>
+                <h1>Image url</h1>
                 <input onChange={this.handleInput} name="donation_photo"></input>
-            <div>
-                <button onClick={()=>this.setState({Category:4})}>Home</button>
-                <button onClick={()=>this.setState({Category:2})}>Clothing</button>
-                <button onClick={()=>this.setState({Category:3})}>Electronics</button>
-                <button onClick={()=>this.setState({Category:1})}>Furniture</button>
-                <button onClick={()=>this.setState({Category:5})}>Education</button>
-                <button onClick={()=>this.setState({Category:6})}>Sports & Games</button>
-                <button onClick={()=>this.setState({Category:7})}>Movies & Music</button>
-                <button onClick={()=>this.setState({Category:8})}>Baby & Child</button>
-                <button onClick={()=>this.setState({Category:9})}>Other</button>
+            <div className="button-parent">
+                <div className={`${this.state.category=== 4?"ham":"dud" }`} onClick={()=>this.setState({category:4})}>Home</div>
+                <div className={`${this.state.category=== 2?"ham":"dud" }`} onClick={()=>this.setState({category:2})}>Clothing</div>
+                <div className={`${this.state.category=== 3?"ham":"dud" }`} onClick={()=>this.setState({category:3})}>Electronics</div>
+                <div className={`${this.state.category=== 1?"ham":"dud" }`} onClick={()=>this.setState({category:1})}>Furniture</div>
+                <div className={`${this.state.category=== 5?"ham":"dud" }`} onClick={()=>this.setState({category:5})}>Education</div>
+                <div className={`${this.state.category=== 6?"ham":"dud" }`} onClick={()=>this.setState({category:6})}>Sports & Games</div>
+                <div className={`${this.state.category=== 7?"ham":"dud" }`} onClick={()=>this.setState({category:7})}>Movies & Music</div>
+                <div className={`${this.state.category=== 8?"ham":"dud" }`} onClick={()=>this.setState({category:8})}>Baby & Child</div>
+                <div className={`${this.state.category=== 9?"ham":"dud" }`} onClick={()=>this.setState({category:9})}>Other</div>
+            <div onClick={()=>this.post()}>Donate!</div>
             </div>
-            <button onClick={()=>this.post()}>Donate!</button>
                 </div>
         )
     }

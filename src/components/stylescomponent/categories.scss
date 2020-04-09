@@ -1,5 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Trochut:ital@1&display=swap');
+
+
 .icon-container{
     display: flex;
+    font-family: 'Trochut';
+    font-weight: bold;
+    font-stretch: ultra-expanded;
+    justify-self:center;
+    color: white;
+ p{
+     padding-top: 15px;
+ }
 }
 .icon{
     margin: 5px 8px;
@@ -7,12 +18,19 @@
     height: 50px;
     border-radius:25px;
     color: white;
-    background-color:#ff3f55;
     padding: 10px;
     box-sizing: border-box;
- 
+    background-image:  linear-gradient(90deg, rgb(190, 58, 58) 0%, rgb(245, 91, 109) 52%, rgba(255,191,101,1) 100%);
+    box-shadow: 0 4px 8px 0 rgba(170, 109, 250, 0.2);
+
+
+  
 }
 .icon:hover{
     border-radius: 15px;
-    background-color:cadetblue;
+    background-image: linear-gradient(90deg, rgb(90, 16, 187) 0%, #8293ff 52%, #503bff 100%);
+    transform: scaleZ(1.5) scaleY(1.5) scaleX(1.5);
+    transition: all .05s ease;
+    box-shadow: 0 4px 8px 0 rgba(170, 109, 250, 0.2);
+
 }
