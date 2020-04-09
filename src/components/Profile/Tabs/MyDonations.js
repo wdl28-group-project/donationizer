@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
 import { getUserDonations, getDonationsdetail } from '../../../redux/reducers/donationReducer';
+import { IoMdEye, IoIosHeart, IoMdMail } from 'react-icons/io';
 import axios from 'axios';
 
 class MyDonations extends Component{
@@ -31,14 +32,18 @@ class MyDonations extends Component{
                     <img src={donation.donation_photo} alt="donation" onClick={()=>this.props.getDonationsdetail(donation.donation_id)}/>
                     <p>{donation.donation_title}</p>
                     <p>{donation.post_location}</p>
-                    <button onClick={()=>this.deleteDonation(donation.donation_id)}>Delete</button>
+                    <p>
+                    <IoMdEye></IoMdEye>
+                    {donation.view_count}
+                    </p>
+                    <button className="donation-button" onClick={()=>this.deleteDonation(donation.donation_id)}>Delete</button>
                 </div>
             );
         } )
 
         if(this.props.details.length>0){return <Redirect to="/donation-details"/>}
         return(
-            <div>{mappedMyDonations}</div>
+            <div style={{ marginLeft:"10vw", display:"flex", flexDirection:"row"}}>{mappedMyDonations}</div>
         )
     }
 }

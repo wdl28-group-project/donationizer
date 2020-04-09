@@ -4,12 +4,17 @@ $max-third-width: 405px;
 
 $primary: #ea7070;
 $second: #8ac6d1;
+$hoverBgColor2: #8293ff;
+$hoverBgColor : #503bff;
+
 
 $margin-1: 5px;
 $margin-2: 10px;
 $margin-3: 15px;
 $width1: 100%;
 $width2: 50%;
+@import url('https://fonts.googleapis.com/css2?family=Trochut:ital@1&display=swap');
+
 
 @mixin tablet {
   @media (max-width: #{$max-width}) {
@@ -27,15 +32,78 @@ $width2: 50%;
     @content;
   }
 }
+.top{
+  background: linear-gradient(to top, rgba(159,236,237,1) 0%, rgba(1,205,207,1) 20%, rgba(0,87,146,1) 78%);
+  font-family: 'Trochut';
+  font-weight: bold;
+  font-stretch: ultra-expanded;
+  color: none;
+
+}
+
+.parent-detail{
+ border: 1px #503bff solid;
+ width: 50.1vw;
+  height: 70vh;
+  margin: 30px;
+  box-shadow: 10px 20px 32px -7px rgba(0,0,0,0.62);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+}
 
 .react-multi-carousel-list{
   width: 50vw;
   height: 60vh;
-  margin: 30px;
   border-radius:5px ;
-  border: solid 2px #ff3f55;
+  z-index: 0;
 img{
   height: 500px;
+  border-radius:10px ;
 }
 
+}
+.parent-i{
+  width:50px;
+  height: 50px;
+  border-radius:25px;
+  color: white;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 10px;
+  
+}
+
+.icon-cont {
+  display: flex;
+  width: 40vw;
+  border-radius: 15px;
+  border: white 2px;
+  transform: scaleZ(1.5) scaleY(1.5) scaleX(1.5);
+  justify-content: space-evenly;
+  background-image:none;
+  flex-direction: row;
+  margin-left: 4vw ;
+
+
+
+}
+.parent-icon:hover {
+  color: fade-in($color: #e100ff, $amount: 1);
+  transform: scaleZ(2) scaleY(2) scaleX(2);
+
+}
+.info{
+  text-align: end;
+  width: 50vw;
+  margin: 30px;
+  background: linear-gradient(to top, rgba(159,236,237,1) 0%, rgba(1,205,207,1) 20%, rgba(0,87,146,1) 78%);
+  padding: 30px;
+  box-shadow: 10px 20px 32px -7px rgba(0,0,0,0.62);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: white;
+  font-family: 'Trochut';
+  font-weight: bold;
+  font-stretch: ultra-expanded;
 }
