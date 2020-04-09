@@ -1,24 +1,55 @@
 import React, { Component } from 'react';
-import '../Messages/Messages.css';
 
-class Messages extends Component {
+export default class Messages extends Component {
+  constructor(props) {
+    super(props);
+
+    this.scrollDown = this.scrollDown.bind(this);
+  }
+
+  scrollDown() {
+    const { container } = this.refs;
+    container.scrollTop = container.scrollHeight;
+  }
+
+  componentDidMount() {
+    this.scrollDown();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    this.scrollDown();
+  }
+
   render() {
+    const { messages, user, typingUsers } = this.props;
     return (
-      <div id='Messages-root' ref={this.props.refProp}>
-        {this.props.messages.map((message, index) => (
-          <div
-            className={`message ${
-              this.props.username === message.user ? 'message--me' : ''
-            }`}
-            key={index}
-          >
-            <div className='message__user'>{message.user}</div>
-            <p className='message__content'>{message.content}</p>
-          </div>
-        ))}
+      <div ref='container' className='thread-container'>
+        <div className='thread'>
+          {messages.map((mes) => {
+            return (
+              <div
+                key={mes.id}
+                className={`message-container ${
+                  mes.sender === user.name && 'right'
+                }`}
+              >
+                <div className='time'>{mes.time}</div>
+                <div className='data'>
+                  <div className='message'>{mes.message}</div>
+                  <div className='name'>{mes.sender}</div>
+                </div>
+              </div>
+            );
+          })}
+          {typingUsers.map((name) => {
+            return (
+              <div key={name} className='typing-user'>
+                {`${name} is typing . . .`}
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
 }
-
-export default Messages;

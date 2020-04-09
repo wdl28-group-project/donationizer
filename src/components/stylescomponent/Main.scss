@@ -1,6 +1,12 @@
-$desktop-width:1060px;
+$primary: #1ee3cf;
+$secondary: #005792;
+$white:#ffffff;
+
+
+
+$desktop-width:1050px;
 $tablet-width:850px;
-$phone-width:466px;
+$phone-width:515px;
 
 @mixin desktop {
     @media (max-width: #{$desktop-width}) {
