@@ -3,14 +3,14 @@
 @import './components/stylescomponent/Slider.scss';
 @import './components/stylescomponent/postDonation.scss'; 
 /* @import './components/stylescomponent/Categories.scss'; */
- @import './components/stylescomponent/Home.scss'; 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+ @import './components/stylescomponent/home.scss'; 
+ @import url('https://fonts.googleapis.com/css2?family=Trochut:ital@1&display=swap');
 @import './components/stylescomponent/_form.scss';
 
 
 .App{
     background-color:#fff7f7;
     background-image:linear-gradient($white,rgb(139, 171, 187),$white);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Trochut';
 
 }

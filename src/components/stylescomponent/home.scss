@@ -1,19 +1,57 @@
 @import './Main.scss';
-@import url('https://fonts.googleapis.com/css2?family=Trochut:ital@1&display=swap');
-.header-container{
-    position:sticky;
-    background-color:rgb(245, 240, 240);
+
+
+  .header-container {
+    position: sticky;
+    background-color: $secondary;
     width: 100%;
     height: 10vh;
     top: 0;
     margin-top: -20px;
-    @include tablet() {
-        background-color:rgb(226, 160, 160);
+    a {
+      color: $white;
+      text-decoration: none;
+      margin: 0 10px;
     }
   }
+  .loggedOut,
+  .loggedIn {
+    padding: 0 10px;
+    box-sizing: border-box;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    div {
+      display: flex;
+      font-size: 19px;
+      margin: 0 10px;
+      border: 1px solid transparent;
+      outline: none;
+      align-items: flex-end;
+      svg {
+        margin-top: -5px;
+      }
+    }
+  }
+  #name{
+    font-size: 25px;
+  }
+  #chat{
+    margin-top: 1px;
+  }
+  nav{
+    .profile-pic{
+      width: 50px;
+      height: 50px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 100%;
+    }
+  }
+
 .search-container{
     height:8vh;
-    background-color:#ff3f55;
     position:sticky;
     top:10vh;
     display: flex;
@@ -21,39 +59,117 @@
     align-items: center;
     background: linear-gradient(to top, rgba(159,236,237,1) 0%, rgba(1,205,207,1) 20%, rgba(0,87,146,1) 78%);
 }
+
+.search{
+  height: 60%;
+  width: 25%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px auto;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center; 
+  @include tablet {
+    width: 40%;
+  }
+  @include phone {
+    width: 60%;
+  }
+
+}
+#input{
+  width: 90%;
+  line-height: 20px;
+  font-size: 16px;
+  border: 1px solid transparent;
+  outline: none;
+}
 .donation-category-container{
     display: flex;
     justify-content:space-around
 }
+
+
 .category-container{
     position: fixed;
     left: 0;
     margin-top:20px;
-}
-.donation-container{
-    width: 83vw;
-    padding: 0px 10px;
+    padding: 10px 5px;
     box-sizing: border-box;
-    text-align: center;   
-    margin-top: -50px;
-    margin-left: 180px; 
+    background-image:linear-gradient($white,$secondary);
+    @include tablet() {
+      position: fixed;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding: 10px 20px;
+      box-sizing: border-box;
+    }
+    @include phone() {
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      padding: 10px;
+      box-sizing: border-box;
+      justify-content: space-between;
+    }
+
+
 }
-.search{
-    height: 60%;
-    width: 25%;
-    background-color: white;
-    border-radius: 5px;
-    padding: 5px auto;
-    box-sizing: border-box;
+
+.icon-container{
     display: flex;
-    align-items: center;   
+    font-family: 'Trochut';
+    font-weight: bold;
+    font-stretch: ultra-expanded;
+    justify-self:center;
+    color: white;
+ p{
+     padding-top: 15px;
+ }
+ @include tablet() {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  p {
+    display: none;
+  }
 }
-#input{
-    width: 90%;
-    line-height: 20px;
-    font-size: 16px;
-    border: 1px solid transparent;
-    outline: none;
+
+}
+.icon{
+    margin: 5px 8px;
+    width:50px;
+    height: 50px;
+    border-radius:25px;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    background: linear-gradient(145deg, rgba(159,236,237,1) 0%, rgba(1,205,207,1) 29%, rgba(0,87,146,1) 78%);
+    box-shadow: 0 4px 8px 0 rgba(170, 109, 250, 0.2); 
+  }
+.icon:hover{
+    border-radius: 15px;
+    background-image: linear-gradient(90deg, rgb(90, 16, 187) 0%, #8293ff 52%, #503bff 100%);
+    transform: scaleZ(1.5) scaleY(1.5) scaleX(1.5);
+    transition: all .05s ease;
+    box-shadow: 0 4px 8px 0 rgba(170, 109, 250, 0.2);
+}
+.category-container::-webkit-scrollbar {
+  display: none;
+}
+
+.donation-container{
+  width: 83vw;
+  padding: 0px 10px;
+  box-sizing: border-box;
+  text-align: center;   
+  margin-top: -50px;
+  margin-left: 180px; 
+  @include tablet() {
+    width: 100vw;
+    margin: 5vh 0 0 0;
+  }
 }
 .donation-card-container{
     margin-top: 10vh;
@@ -61,6 +177,13 @@
     grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));
     grid-template-rows: auto;
     grid-row-gap: 1em;
+    @include tablet() {
+      grid-template-columns: repeat(auto-fit, minmax(10rem, auto));
+    }
+    @include phone() {
+      grid-template-columns: repeat(auto-fit, minmax(9rem, auto));
+    }
+  
 }
 .donation-card{
     width: 200px;
@@ -93,290 +216,11 @@ img{
 }
 .footer-container{
     height: 50px;
-    background-color: cadetblue;
+    background-color: $secondary;
     margin-top: 300px;
+    text-align: center;
+    color: $white;
+  
 }
-.header-container {
-    position: sticky;
-    background-color: $secondary;
-    width: 100%;
-    height: 10vh;
-    top: 0;
-    margin-top: -20px;
-    a {
-      color: $white;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-  }
-  .loggedOut,
-  .loggedIn {
-    padding: 0 10px;
-    box-sizing: border-box;
-    height: 10vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    div {
-      display: flex;
-      font-size: 19px;
-      margin: 0 10px;
-      border: 1px solid transparent;
-      outline: none;
-      align-items: flex-end;
-      svg {
-        margin-top: -5px;
-      }
-    }
-  }
-  #name{
-    font-size: 25px;
-  }
-  #chat{
-    margin-top: 1px;
-  }
-  nav{
-    .profile-pic{
-      width: 50px;
-      height: 50px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 100%;
-    }
-  }
 
 
-
-
-.header-container {
-    position: sticky;
-    background-color: $secondary;
-    width: 100%;
-    height: 10vh;
-    top: 0;
-    margin-top: -20px;
-    a {
-      color: $white;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-  }
-  .loggedOut,
-  .loggedIn {
-    padding: 0 10px;
-    box-sizing: border-box;
-    height: 10vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    div {
-      display: flex;
-      font-size: 19px;
-      margin: 0 10px;
-      border: 1px solid transparent;
-      outline: none;
-      align-items: flex-end;
-      svg {
-        margin-top: -5px;
-      }
-    }
-  }
-  #name{
-    font-size: 25px;
-  }
-  #chat{
-    margin-top: 1px;
-  }
-  nav{
-    .profile-pic{
-      width: 50px;
-      height: 50px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 100%;
-    }
-  }
-//   .search-container {
-//     height: 8vh;
-//     position: sticky;
-//     background-color: $primary;
-//     top: 10vh;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     @include tablet {
-//       margin-bottom: 20px;
-//     }
-//     .search {
-//       height: 60%;
-//       width: 30%;
-//       background-color: $white;
-//       border-radius: 5px;
-//       padding: 5px auto;
-//       box-sizing: border-box;
-//       display: flex;
-//       align-items: center;
-//       @include tablet {
-//         width: 40%;
-//       }
-//       @include phone {
-//         width: 60%;
-//       }
-//     }
-//     #input {
-//       text-align: center;
-//       width: 90%;
-//       line-height: 20px;
-//       font-size: 16px;
-//       border: 1px solid transparent;
-//       outline: none;
-//     }
-//   }
-//   .donation-category-container {
-//     display: flex;
-//     justify-content: space-around;
-//   }
-  .category-container {
-    position: fixed;
-    left: 0;
-    padding-top: 30px;
-    box-sizing: border-box;
-    @include tablet() {
-      position: fixed;
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      padding: 10px 20px;
-      box-sizing: border-box;
-    //   background-image: linear-gradient(rgb(139, 171, 187), $white);
-    }
-    @include phone() {
-      overflow-x: scroll;
-      scroll-behavior: smooth;
-      padding: 10px;
-      box-sizing: border-box;
-      justify-content: space-between;
-    }
-    .icon-container {
-      display: flex;
-      p {
-        margin-top: 20px;
-      }
-      @include tablet() {
-        //   width: 100px;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        p {
-          display: none;
-        }
-      }
-      .icon {
-        margin: 5px 8px;
-        width: 50px;
-        height: 50px;
-        border-radius: 25px;
-        color: $white;
-        // background-color: $primary;
-        padding: 10px;
-        box-sizing: border-box;
-        @include tablet() {
-        //   background-color: $secondary;
-          margin: 0px;
-          border-radius: 25px;
-        }
-        @include phone() {
-          width: 46px;
-          height: 46px;
-          border-radius: 23px;
-          margin: 0 10px;
-        }
-        &:hover {
-          border-radius: 15px;
-        //   background-color: $secondary;
-          @include tablet() {
-            border-radius: 25px;
-            // background-color: $primary;
-          }
-        }
-      }
-    }
-  }
-//   .category-container::-webkit-scrollbar {
-//     display: none;
-//   }
-//   .donation-container {
-//     width: 83vw;
-//     padding: 50px 10px;
-//     box-sizing: border-box;
-//     text-align: center;
-//     margin-left: 180px;
-//     @include tablet() {
-//       width: 100vw;
-//       margin: 3vh 0 0 0;
-//     }
-//   }
-//   .donation-card-container {
-//     display: grid;
-//     grid-template-columns: repeat(auto-fit, minmax(13rem, auto));
-//     grid-template-rows: auto;
-//     @include desktop() {
-//       grid-template-columns: repeat(auto-fit, minmax(11rem, auto));
-//     }
-//     @include tablet() {
-//       grid-template-columns: repeat(auto-fit, minmax(10rem, auto));
-//     }
-//     @include phone() {
-//       grid-template-columns: repeat(auto-fit, minmax(8rem, auto));
-//     }
-//     .donation-card {
-//       max-width: 195px;
-//       height: 260px;
-//       font-size: 15px;
-//       border-radius: 15px;
-//       border: 2px solid $secondary;
-//       background-color: $white;
-//       margin: 10px;
-//       @include tablet() {
-//         height: 240px;
-//       }
-//       @include phone() {
-//         height: 200px;
-//       }
-//       img {
-//         width: 100%;
-//         height: 60%;
-//         border-top-left-radius: 15px;
-//         border-top-right-radius: 15px;
-//       }
-//       p {
-//         margin-top: 10px;
-//       }
-//     }
-//   }
-//   .footer-container {
-//     width: 100%;
-//     background-color: $secondary;
-//     margin-top: 300px;
-//     text-align: center;
-//     color: $white;
-//   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
