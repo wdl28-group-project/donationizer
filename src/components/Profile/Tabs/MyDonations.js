@@ -43,7 +43,7 @@ class MyDonations extends Component{
 
         if(this.props.details.length>0){return <Redirect to="/donation-details"/>}
         return(
-            <div>{mappedMyDonations}</div>
+            <div style={{ marginLeft:"10vw", display:"flex", flexDirection:"row"}}>{mappedMyDonations}</div>
         )
     }
 }
