@@ -11,8 +11,8 @@ getDonations:async(req, res)=>{
 
 postDonation: function (req, res){
     const db = req.app.get('db')        
-    const {donation_title, donation_desc, post_location,post_date, view_count, isdonated, category, donator_id} = req.body
-    db.donations.postDonation(donator_id, donation_title, donation_desc, post_location, view_count, isdonated, category,post_date)
+    const {donation_title, donation_desc, post_location,donator_id} = req.body
+    db.donations.postDonation(donator_id, donation_title, donation_desc, post_location,category)
         .then(post =>{
             console.log(post)
             res.sendStatus(200)
