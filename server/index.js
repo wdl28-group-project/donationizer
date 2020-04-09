@@ -7,43 +7,26 @@ const massive = require('massive');
 const session = require('express-session');
 const authCtrl = require('./controllers/authCtrl');
 const donationCtrl = require('./controllers/donationCtrl');
+
 //SOCKET.IO
-const io = require('socket.io')(
+// var app = require('http').createServer();
+var io = (module.exports.io = require('socket.io')(
   app.listen(SERVER_PORT, () => console.log('Party on, Wayne! CHAT is ON!!!'))
-);
-
-let userCount = 0;
-
-io.on('connection', socket => {
-  userCount++;
-
-  const username = `Guest ${userCount}`;
-
-  socket.emit('SET_USERNAME', username);
-  io.sockets.emit('CREATE_MESSAGE', {
-    content: console.log(`${username} connected`)
-  });
-
-  socket.on('SEND_MESSAGE', messageObj => {
-    // console.log(messageObj);
-    io.sockets.emit('CREATE_MESSAGE', messageObj);
-  });
-
-  socket.on('DISCONNECTED', () => {
-    io.sockets.emit('CREATE_MESSAGE', {
-      content: `${username} disconnected`
-    });
-  });
-});
+));
+const SocketManager = require('./SocketManager');
+// const io = require('socket.io')(
+// app.listen(SERVER_PORT, () => console.log('Party on, Wayne! CHAT is ON!!!'))
+// );
+io.on('connection', SocketManager);
 
 app.use(express.json());
 
 massive(CONNECTION_STRING)
-  .then(db => {
+  .then((db) => {
     console.log('Excellent');
     app.set('db', db);
   })
-  .catch(err => console.error(err));
+  .catch((err) => console.error(err));
 
 app.use(
   session({
@@ -51,8 +34,8 @@ app.use(
     resave: false,
     secret: SESSION_SECRET,
     cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 7
-    }
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+    },
   })
 );
 
@@ -77,7 +60,8 @@ const {
   updateViewCount,
   postFavourite,
   getUserFavorites,
-  getUserDonations
+  postDonationPhoto,
+  getUserDonations,
 } = donationCtrl;
 
 app.get('/api/donations/category', getDonationByCategory);
@@ -85,11 +69,12 @@ app.get('/api/donations/:id', getDonations);
 app.get('/api/donations/filter', getFilteredDonations);
 
 app.get('/api/donation/:id', getDonationInfo);
-app.post('/api/donation/', postDonation);
+app.post('/api/donation', postDonation);
 app.get('/api/donation/:id/photos', getDonationPhotos);
 app.put('/api/viewCount/:id', updateViewCount);
 app.delete('/api/donation/:id', deleteDonation);
 app.get('/api/donations/favorites/:id', getUserFavorites);
 app.get('/api/donations/users/:id', getUserDonations);
 
-app.post('/api/favourites', postFavourite)
+app.post('/api/postPhoto',postDonationPhoto)
+app.post('/api/favourites', postFavourite);

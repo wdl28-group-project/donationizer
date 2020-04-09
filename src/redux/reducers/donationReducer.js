@@ -5,6 +5,7 @@ const initialState = {
   details:[],
   favorites: [],
   myDonations: []
+
 };
 
 //constants
@@ -15,7 +16,7 @@ const UPDATE_VIEW_COUNT='UPDATE_VIEW_COUNT'
 const POST_DONATION='POST_DONATION';
 const GET_FAVORITE_DONATIONS = "GET_FAVORITE_DONATIONS";
 const GET_USER_DONATIONS = 'GET_USER_DONATIONS';
-
+const POST_FAVOURITE = "POST_FAVOURITE"
 //action creator
 export function getDonations(id) {
   let data = axios.get(`/api/donations/${id}`); 
@@ -46,14 +47,33 @@ export function updateViewCount(id) {
     payload: data
   };
 };
-export const postDonation = async obj => {
-  let data = await axios.put( '/api/donation/', obj ).then( res => console.log(res) );
-
+export function postDonation(obj){
+  let data =    axios.post( '/api/donation', obj)
+  .then( result =>{ 
+          const donation_photo= obj.donation_photo
+          console.log(donation_photo, result, "over")
+          const donation_id = result.data.donation_id
+          console.log(donation_id)
+          const obj2 = { donation_id , donation_photo}
+          console.log(obj2)
+          axios.post('/api/postPhoto', obj2)
+          .then(res=> res) })
+    .catch(res=>console.log(res))
   return {
-    type: UPDATE_VIEW_COUNT,
+    type: POST_DONATION,
     payload: data
   };
 }
+export function postfavourites(obj){
+
+let data =    axios.post( '/api/favourites', obj) 
+    .then( result =>{ console.log(result)})
+    return {
+      type: POST_FAVOURITE,
+      payload: data
+    };
+  }
+
 
 export const getFavorites = (user_id) => {
   return{
@@ -111,25 +131,38 @@ export default function donationReducer(state = initialState,action) {
     case  `${ UPDATE_VIEW_COUNT}_PENDING`:
       return{
         ...state,
-        loading: true
-      }
+        loading: true,
+      };
     case `${UPDATE_VIEW_COUNT}_FULFILLED`:
       return{
         ...state,
         loading:false,
         details: payload.data
-      }
-    case  `${ POST_DONATION}_PENDING`:
+      };
+    case  `${POST_DONATION}_PENDING`:
       return{
         ...state,
         loading: true
-      }
+      };
     case `${POST_DONATION}_FULFILLED`:
+      // console.log(payload.data, "her idiot")
       return{
         ...state,
         loading:false,
-        payload: payload.data
-      }
+        // details: payload.data
+      };
+    case  `${POST_FAVOURITE}_PENDING`:
+      return{
+        ...state,
+        loading: true
+      };
+    case `${POST_FAVOURITE}_FULFILLED`:
+      // console.log(payload.data, "her idiot")
+      return{
+        ...state,
+        loading:false,
+        // details: payload.data
+      };
     case `${GET_FAVORITE_DONATIONS}_PENDING`:
         return {
           ...state,
