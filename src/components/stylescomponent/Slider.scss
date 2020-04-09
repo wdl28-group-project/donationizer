@@ -33,7 +33,7 @@ $width2: 50%;
   }
 }
 .top{
-  background-image: linear-gradient(90deg, rgb(90, 16, 187) 0%, #8293ff 52%, #503bff 100%);
+  background: linear-gradient(to top, rgba(159,236,237,1) 0%, rgba(1,205,207,1) 20%, rgba(0,87,146,1) 78%);
   font-family: 'Trochut';
   font-weight: bold;
   font-stretch: ultra-expanded;
@@ -49,6 +49,7 @@ $width2: 50%;
   box-shadow: 10px 20px 32px -7px rgba(0,0,0,0.62);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  
 
 }
 
@@ -57,9 +58,18 @@ $width2: 50%;
   height: 60vh;
   border-radius:5px ;
   z-index: 0;
+
+  @include tablet {
+    height: 400px;
+
+  }
 img{
   height: 500px;
   border-radius:10px ;
+  @include tablet {
+    height: 400px;
+
+  }
 }
 
 }
@@ -84,6 +94,10 @@ img{
   background-image:none;
   flex-direction: row;
   margin-left: 4vw ;
+  @include tablet {
+    margin: 0 auto;
+
+  }
 
 
 
@@ -97,7 +111,7 @@ img{
   text-align: end;
   width: 50vw;
   margin: 30px;
-  background-color: (90deg, rgb(90, 16, 187) 200%, #596ee4 3%, #c13bff 40%);
+  background: linear-gradient(to top, rgba(159,236,237,1) 0%, rgba(1,205,207,1) 20%, rgba(0,87,146,1) 78%);
   padding: 30px;
   box-shadow: 10px 20px 32px -7px rgba(0,0,0,0.62);
   border-bottom-left-radius: 10px;
@@ -106,4 +120,8 @@ img{
   font-family: 'Trochut';
   font-weight: bold;
   font-stretch: ultra-expanded;
+  @include tablet {
+    margin-bottom: 10px;
+    padding: 10px;
+  }
 }

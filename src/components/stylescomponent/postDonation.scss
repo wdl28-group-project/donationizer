@@ -7,7 +7,7 @@ $hoverBgColor2: #8293ff;
 .post-parent{
     margin-top: 30px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    height:82vh;
+    height:83vh;
     width: 35vw;
     margin-left: 30vw;
     margin-right: 30vw;
@@ -15,12 +15,19 @@ $hoverBgColor2: #8293ff;
     flex-direction: column;
     text-align: center;
     border-radius: 10px;
-    background-image: linear-gradient(90deg, rgb(90, 16, 187) 0%, #8293ff 52%, #503bff 100%);
+    background: linear-gradient(to top, rgba(159,236,237,1) 0%, rgba(1,205,207,1) 20%, rgba(0,87,146,1) 78%);
     font-size: larger;
     color: white;
     font-family: 'Trochut';
     font-weight: lighter;
     font-stretch: ultra-expanded;
+    @include tablet() {
+      width: 60%;
+      margin:30px auto;
+    }
+  
+  
+   
 
     input{
         width: 20vw;
@@ -29,9 +36,16 @@ $hoverBgColor2: #8293ff;
         border: none;
         border-bottom: solid 1px #503bff;
         border-radius: 6px;
+        @include tablet() {
+          width: 70%;
+
+        }
     }
     h1{
         font-weight: lighter;
+        @include desktop() {
+          font-size:19px;
+        }
     }
 }
 .post-parent:hover{
@@ -45,6 +59,14 @@ $hoverBgColor2: #8293ff;
     margin: 5px;
     height: 70px;
     border-radius: 10px;
+    @include tablet() {
+      width: 70%;
+      margin: 0 auto;
+    }
+    // @include phone() {
+    //   width: 90%;
+    //   // margin: 0 auto;
+    // }
 
   
   }
@@ -64,6 +86,7 @@ $hoverBgColor2: #8293ff;
     border-top: solid #c41818;
     border-bottom: solid #c41818;
     background-color: #ea7070;
+    border-radius: 20px;
   }
 
   .button-parent:hover {

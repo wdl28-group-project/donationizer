@@ -1,9 +1,13 @@
 import  React, { Component } from 'react'
 import reactDOM from "react-dom"
 import {render} from "@testing-library/react"
-import MyDonations from "../../components/Profile/Tabs/MyDonations"
+import MyDonations from "../../components/DonationDetails"
+import "jest-dom/extend-expect"
 
 it("renders", ()=>{
-    const div = document.createElement("button");
-    reactDOM.render(<button></button>)
+    const button = document.createElement("button");
+    reactDOM.render(<button></button>, button)
+})
+it("renders correctly", ()=>{
+   const{getByTestId}= render()
 })

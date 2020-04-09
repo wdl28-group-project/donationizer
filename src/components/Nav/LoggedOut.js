@@ -7,7 +7,7 @@ class LoggedOut extends Component{
             <div  className="header-container">
                 <nav className='loggedOut'>
                         <div>
-                            <Link to='/' id="name">GIVE AWAY</Link>
+                            <Link to='/' id="name">GIFT AWAY</Link>
                         </div>
                         <div className="loggedOutLinks">
                             <Link to="/Post"><MdAddAPhoto/> Give</Link>

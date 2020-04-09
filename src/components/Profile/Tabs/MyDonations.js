@@ -36,14 +36,14 @@ class MyDonations extends Component{
                     <IoMdEye></IoMdEye>
                     {donation.view_count}
                     </p>
-                    <button data-testid="button" className="donation-button" onClick={()=>this.deleteDonation(donation.donation_id)}>Delete</button>
+                    <button className="donation-button" onClick={()=>this.deleteDonation(donation.donation_id)}>Delete</button>
                 </div>
             );
         } )
 
         if(this.props.details.length>0){return <Redirect to="/donation-details"/>}
         return(
-            <div>{mappedMyDonations}</div>
+            <div style={{ marginLeft:"10vw", display:"flex", flexDirection:"row"}}>{mappedMyDonations}</div>
         )
     }
 }

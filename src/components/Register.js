@@ -18,7 +18,7 @@ class Register extends Component{
 
         return(
             <div>
-                <div className='form register'>
+                <div className='form login'>
                     <input
                         type='text'
                         name='username'
