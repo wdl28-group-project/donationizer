@@ -18,7 +18,7 @@ class Profile extends React.Component {
     return (
       <div className="profile-container">
         <div className="user-info">
-          <img src={profile_pic? profile_pic : 'https://www.fillmurray.com/400/300'} width="200px"/>
+          <img src={profile_pic? profile_pic : 'https://www.fillmurray.com/400/300'} style={{width:"200px"}}/>
           <div>
           <p>{username}</p>
           <p>{location}</p>
