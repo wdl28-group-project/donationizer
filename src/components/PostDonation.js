@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getUser} from '../redux/reducers/authReducer';
 import { postDonation } from '../redux/reducers/donationReducer';
+import Upload from './Cloudinary/Upload';
 import axios from "axios"
+require('dotenv').config();
 
 
  class PostDonation extends Component {
@@ -42,8 +44,12 @@ handleInput = e => {
     this.setState({ [e.target.name]: e.target.value} )
 }
 
-
+    handleCloudinary = incomingUpdate => {
+        let { image_url: donation_photo } = incomingUpdate;
+        this.setState({ donation_photo });
+    }
     render() {
+        const { REACT_APP_CLOUDINARY_DONATION } = process.env;
         return (
             <div className="post-parent">
                 <h1>Donation Title</h1>
@@ -51,7 +57,7 @@ handleInput = e => {
                 <h1>Product Description</h1>
                 <input onChange={this.handleInput} name="donation_desc"></input>
                 <h1>Image url</h1>
-                <input onChange={this.handleInput} name="donation_photo"></input>
+                <Upload uploadDestination={ REACT_APP_CLOUDINARY_DONATION } handleCloudinary={ this.handleCloudinary } />
             <div className="button-parent">
                 <div className={`${this.state.category=== 4?"ham":"dud" }`} onClick={()=>this.setState({category:4})}>Home</div>
                 <div className={`${this.state.category=== 2?"ham":"dud" }`} onClick={()=>this.setState({category:2})}>Clothing</div>
