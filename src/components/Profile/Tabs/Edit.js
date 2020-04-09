@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { editUser } from "../../../redux/reducers/authReducer";
+import Upload from '../../Cloudinary/Upload';
 import axios from 'axios';
 import "../../stylescomponent/Profile.scss";
 require('dotenv').config();
@@ -83,29 +84,13 @@ class Edit extends React.Component {
       alert("not equal password");
     }
   };
-  checkUploadResult = (error, result) => {
-      let { event, info } = result;
-      if(event === 'success'){
-          this.setState({ profile_pic: info.url });
-      }
+  handleCloudinary = incomingUpdate => {
+    let { image_url: profile_pic } = incomingUpdate;
+    this.setState({ profile_pic });
   }
 
   render() {
-    const { REACT_APP_CLOUDNAME, REACT_APP_CLOUDINARY_UNSIGNED } = process.env;
-    var widget;
-    if( window.cloudinary ) {
-        widget = window.cloudinary.createUploadWidget(
-            {
-                cloudName: `${REACT_APP_CLOUDNAME}`,
-                uploadPreset: `${REACT_APP_CLOUDINARY_UNSIGNED}`,
-                sources: ['local', 'url', 'facebook', 'instagram'],
-                Default: false
-            },
-            ( error, result ) => {
-                this.checkUploadResult(error, result);
-            }
-        );
-    }
+    const { REACT_APP_CLOUDINARY_PROFILE } = process.env;
     let { profile_pic } = this.state;
     return (
       <div className="profile">
@@ -113,9 +98,8 @@ class Edit extends React.Component {
           <img
             className='pointer' 
             src={ profile_pic ? profile_pic : 'https://res.cloudinary.com/dsbuphoeh/image/upload/v1586359587/Donationizer/01_w5jmbt.png' } alt='profile'
-            onClick={ () => widget.open() }
           />
-          Tap on photo to change it
+          <Upload uploadDestination={ REACT_APP_CLOUDINARY_PROFILE } handleCloudinary={ this.handleCloudinary } />
         </div>
         <div className="profile-content">
           <div className="userName">
