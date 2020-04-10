@@ -29,9 +29,9 @@ class Categories extends React.Component{
                     <GiWorld name="all" className="icon"/>
                     <p>All</p>
                 </div>                
-                <div className="icon-container" data-test-id="category-button" onClick={()=>this.selectCategory('Furniture')}>
+                <div className="icon-container" data-test-id="categor-button" onClick={()=>this.selectCategory('Furniture')}>
                     <GiSofa name="Furniture" className="icon"/>
-                    <p>Furniture</p>
+                    <p data-test-id="categor-text">Furniture</p>
                 </div>                
                 <div className="icon-container" data-test-id="category-button" onClick={()=>this.selectCategory('Clothing')}>
                     <FaTshirt name="Clothing" className="icon"/>

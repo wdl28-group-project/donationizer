@@ -1,3 +1,3 @@
-// export default {
-//     get:jest.fn(()=>{Promise.resolve({data:"mocked"})})
-// }
+export default {
+    get:jest.fn(()=>{Promise.resolve({data:"mocked"})})
+}

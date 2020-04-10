@@ -7,6 +7,7 @@ import LoggedOut from './LoggedOut';
 
 class Nav extends Component{
     render(){
+        console.log(this.props.user)
         if( this.props.user.user_id ) return <LoggedIn user={this.props.user} logoutUser={this.props.logoutUser} />
 
         return(
