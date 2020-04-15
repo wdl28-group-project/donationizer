@@ -24,14 +24,14 @@ class Categories extends React.Component{
     render(){
         // console.log(this.props.donations)
         return(
-            <div className="category-container">
-                <div className="icon-container" onClick={()=>this.selectCategory('All')}>
+            <div className="category-container" data-test-id="category">
+                <div className="icon-container" data-test-id="categor-button" onClick={()=>this.selectCategory('All')}>
                     <GiWorld name="all" className="icon"/>
                     <p>All</p>
                 </div>                
                 <div className="icon-container" data-test-id="categor-button" onClick={()=>this.selectCategory('Furniture')}>
                     <GiSofa name="Furniture" className="icon"/>
-                    <p data-test-id="categor-text">Furniture</p>
+                    <p >Furniture</p>
                 </div>                
                 <div className="icon-container" data-test-id="category-button" onClick={()=>this.selectCategory('Clothing')}>
                     <FaTshirt name="Clothing" className="icon"/>
