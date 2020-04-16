@@ -3,11 +3,12 @@ import io from 'socket.io-client';
 import { USER_CONNECTED, LOGOUT } from '../../Events';
 import LoginForm from './LoginForm';
 import ChatContainer from './chats/ChatContainer';
-// require('dotenv').config();
-// const { SERVER_PORT } = process.env;
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import '../stylescomponent/index.scss';
 
 const socketUrl = `http://localhost:6060`;
-export default class Layout extends Component {
+class Layout extends Component {
   constructor(props) {
     super(props);
 
@@ -19,6 +20,11 @@ export default class Layout extends Component {
 
   componentWillMount() {
     this.initSocket();
+    if (this.props.user) {
+      this.setState({
+        user: this.props.user.username,
+      });
+    }
   }
 
   /*
@@ -55,10 +61,11 @@ export default class Layout extends Component {
   };
 
   render() {
+    console.log(this.props.user);
     // const { title } = this.props;
     const { socket, user } = this.state;
     return (
-      <div className='container'>
+      <div className='container bring-forward'>
         {!user ? (
           <LoginForm socket={socket} setUser={this.setUser} />
         ) : (
@@ -68,3 +75,10 @@ export default class Layout extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  const { user } = state.authReducer;
+
+  return { user };
+};
+export default withRouter(connect(mapStateToProps, {})(Layout));

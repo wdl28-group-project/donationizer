@@ -411,3 +411,16 @@ textarea {
   opacity: 0.2;
   background: #5d5d8a;
 }
+
+.bring-forward{
+  position: fixed;
+  z-index: 9999;
+  background-color: #ffffff;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.header-container{
+  z-index: 1;
+}
