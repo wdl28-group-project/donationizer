@@ -5,6 +5,7 @@ import LoginForm from './LoginForm';
 import ChatContainer from './chats/ChatContainer';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import '../stylescomponent/index.scss';
 
 const socketUrl = `http://localhost:6060`;
 class Layout extends Component {
@@ -64,7 +65,7 @@ class Layout extends Component {
     // const { title } = this.props;
     const { socket, user } = this.state;
     return (
-      <div className='container'>
+      <div className='container bring-forward'>
         {!user ? (
           <LoginForm socket={socket} setUser={this.setUser} />
         ) : (
